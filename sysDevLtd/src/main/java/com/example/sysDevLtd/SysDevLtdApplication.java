@@ -15,9 +15,7 @@ public class SysDevLtdApplication extends SpringBootServletInitializer {
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
 		return builder.sources(SysDevLtdApplication.class);
 
-		//askajjkhhehghgfhew;ew
 		
-//		fgdfgdfgdfgdf
 	}
 
 }
