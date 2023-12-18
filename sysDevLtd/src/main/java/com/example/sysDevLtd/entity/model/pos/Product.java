@@ -14,6 +14,8 @@ public class Product {
     private int productId;
     private String productName;
     private String productType;
+    private String productOwner;
+    private String ownerNumber;
     @OneToOne(fetch = FetchType.LAZY)
     @MapsId
     @JoinColumn(name = "productDetailsId")
