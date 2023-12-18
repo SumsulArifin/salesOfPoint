@@ -1,6 +1,6 @@
 package com.example.sysDevLtd.config;
 
-import com.example.sysDevLtd.entity.model.salesOfPoint.User;
+import com.example.sysDevLtd.entity.model.users.User;
 import com.example.sysDevLtd.repository.UserRepository;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;

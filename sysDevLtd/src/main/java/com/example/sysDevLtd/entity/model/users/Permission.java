@@ -1,4 +1,4 @@
-package com.example.sysDevLtd.entity.model.userA;
+package com.example.sysDevLtd.entity.model.users;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;

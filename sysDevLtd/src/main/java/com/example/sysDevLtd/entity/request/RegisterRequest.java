@@ -1,5 +1,5 @@
 package com.example.sysDevLtd.entity.request;
-import com.example.sysDevLtd.entity.model.userA.Role;
+import com.example.sysDevLtd.entity.model.users.Role;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

@@ -1,5 +1,5 @@
 package com.example.sysDevLtd.config;
-import com.example.sysDevLtd.entity.model.userA.token.TokenRepository;
+import com.example.sysDevLtd.entity.model.users.token.TokenRepository;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;

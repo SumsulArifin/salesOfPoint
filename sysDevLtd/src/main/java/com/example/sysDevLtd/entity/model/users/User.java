@@ -1,7 +1,6 @@
-package com.example.sysDevLtd.entity.model.salesOfPoint;
-import com.example.sysDevLtd.entity.model.salesOfPoint.Employees;
-import com.example.sysDevLtd.entity.model.userA.Role;
-import com.example.sysDevLtd.entity.model.userA.token.Token;
+package com.example.sysDevLtd.entity.model.users;
+import com.example.sysDevLtd.entity.model.users.Role;
+import com.example.sysDevLtd.entity.model.users.token.Token;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

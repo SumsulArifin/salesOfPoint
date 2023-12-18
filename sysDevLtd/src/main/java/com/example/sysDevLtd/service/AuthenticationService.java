@@ -1,9 +1,9 @@
-package com.example.sysDevLtd.service.user;
+package com.example.sysDevLtd.service;
 import com.example.sysDevLtd.config.JwtService;
-import com.example.sysDevLtd.entity.model.salesOfPoint.User;
-import com.example.sysDevLtd.entity.model.userA.token.Token;
-import com.example.sysDevLtd.entity.model.userA.token.TokenRepository;
-import com.example.sysDevLtd.entity.model.userA.token.TokenType;
+import com.example.sysDevLtd.entity.model.users.User;
+import com.example.sysDevLtd.entity.model.users.token.Token;
+import com.example.sysDevLtd.entity.model.users.token.TokenRepository;
+import com.example.sysDevLtd.entity.model.users.token.TokenType;
 import com.example.sysDevLtd.entity.request.AuthenticationRequest;
 import com.example.sysDevLtd.entity.request.RegisterRequest;
 import com.example.sysDevLtd.entity.response.AuthenticationResponse;

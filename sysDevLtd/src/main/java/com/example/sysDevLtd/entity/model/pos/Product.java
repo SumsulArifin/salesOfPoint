@@ -1,6 +1,4 @@
 package com.example.sysDevLtd.entity.model.pos;
-
-import com.example.sysDevLtd.entity.model.salesOfPoint.Employees;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;

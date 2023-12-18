@@ -1,4 +1,4 @@
-package com.example.sysDevLtd.entity.model.userA.token;
+package com.example.sysDevLtd.entity.model.users.token;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

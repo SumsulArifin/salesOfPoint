@@ -1,6 +1,6 @@
 package com.example.sysDevLtd.config;
 
-import com.example.sysDevLtd.entity.model.userA.token.TokenRepository;
+import com.example.sysDevLtd.entity.model.users.token.TokenRepository;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

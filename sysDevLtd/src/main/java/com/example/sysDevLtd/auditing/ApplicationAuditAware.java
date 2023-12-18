@@ -1,5 +1,5 @@
 package com.example.sysDevLtd.auditing;
-import com.example.sysDevLtd.entity.model.salesOfPoint.User;
+import com.example.sysDevLtd.entity.model.users.User;
 import org.springframework.data.domain.AuditorAware;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
