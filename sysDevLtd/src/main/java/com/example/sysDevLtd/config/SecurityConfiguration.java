@@ -37,7 +37,8 @@ public class SecurityConfiguration {
             "/swagger-ui.html",
             "/assignDetails/**",
             "/api/admin/**",
-    "/department/**"};
+    "/department/**",
+    "/customer/**"};
     private final JwtAuthenticationFilter jwtAuthFilter;
     private final AuthenticationProvider authenticationProvider;
     private final LogoutHandler logoutHandler;

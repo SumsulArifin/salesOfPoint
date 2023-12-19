@@ -16,7 +16,7 @@ import java.util.List;
 public class Product extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int productId;
+    private Long productId;
     private String productName;
     private String productType;
     private String productOwner;

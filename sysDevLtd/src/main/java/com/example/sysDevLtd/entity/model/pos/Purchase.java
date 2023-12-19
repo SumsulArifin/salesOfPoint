@@ -6,9 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
+
 @Entity
 @Data
 @AllArgsConstructor
@@ -34,7 +32,6 @@ public class Purchase {
 
     @Column(name = "payment_method")
     private String payment;
-
 
     @Column(name = "discount")
     private int discount;
