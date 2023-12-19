@@ -38,11 +38,6 @@ public class Purchase {
     @Column(name = "total_amount")
     private int totalAmount;
 
-    @Column(name = "vehicle_identification_number")
-    private String vehicleIdentificationNumber;
-
-    @Column(name = "license_plate_number")
-    private String licensePlateNumber;
 
     @Column(name = "delivery_address")
     private String deliveryAddress;
