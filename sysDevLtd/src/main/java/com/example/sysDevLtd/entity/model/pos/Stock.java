@@ -9,9 +9,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
 @Table(name = "stocks")
 public class Stock {
 
