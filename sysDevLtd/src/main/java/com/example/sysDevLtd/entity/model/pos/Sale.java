@@ -9,9 +9,6 @@ import java.util.Date;
 
 
 @Entity
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
 @Table(name = "sales")
 public class Sale {
 

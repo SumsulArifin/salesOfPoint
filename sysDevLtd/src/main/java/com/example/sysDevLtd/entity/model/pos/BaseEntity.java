@@ -55,6 +55,7 @@ public class BaseEntity {
         setDeletedBy();
     }
 
+
     private void setCreatedBy() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (authentication != null && authentication.getPrincipal() instanceof UserDetails) {
