@@ -30,8 +30,5 @@ public class Customer {
     private String phoneNumber;
 
     @OneToMany(mappedBy = "customer")
-    private List<Purchase> purchases;
-
-    @OneToMany(mappedBy = "customer")
     private List<Sale> sales;
 }
