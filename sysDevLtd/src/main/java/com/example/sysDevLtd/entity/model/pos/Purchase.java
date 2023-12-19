@@ -6,7 +6,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
-
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Data
 @AllArgsConstructor
@@ -17,8 +19,6 @@ public class Purchase {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-
 
     @Column(name = "quantity")
     private int quantity;
@@ -34,6 +34,16 @@ public class Purchase {
 
     @Column(name = "payment_method")
     private String payment;
+
+
+    @Column(name = "discount")
+    private int discount;
+
+    @Column(name = "total_amount")
+    private int totalAmount;
+
+    @Column(name = "delivery_address")
+    private String deliveryAddress;
 
     @ManyToOne
     @JoinColumn(name = "product_id")

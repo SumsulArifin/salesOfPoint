@@ -5,6 +5,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Data
 @AllArgsConstructor
@@ -16,11 +19,19 @@ public class Stock {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "quantity")
+    private int quantity;
+
+    @Column(name = "reorder_threshold")
+    private int reorderThreshold;
+
     @OneToOne
     @JoinColumn(name = "product_id")
     private Product product;
 
-    @Column(name = "quantity")
-    private int quantity;
+    @ManyToOne
+    @JoinColumn(name = "supplier_id")
+    private Supplier supplier;
+
 
 }

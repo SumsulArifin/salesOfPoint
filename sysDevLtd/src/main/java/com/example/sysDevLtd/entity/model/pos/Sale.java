@@ -7,6 +7,9 @@ import lombok.NoArgsConstructor;
 
 import java.util.Date;
 
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Data
 @AllArgsConstructor
@@ -18,23 +21,29 @@ public class Sale {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "product_id")
-    private Product product;
-
     @Column(name = "quantity")
     private int quantity;
 
     @Column(name = "sale_date")
     private Date saleDate;
 
-    @Column(name = "customer_name")
-    private int customer;
-
     @Column(name = "sale_price")
     private int price;
 
-    // Other sale attributes (e.g., customer, price, etc.)
+    @Column(name = "discount")
+    private int discount;
 
-    // Getters and setters
+    @Column(name = "total_amount")
+    private int totalAmount;
+
+    @ManyToOne
+    @JoinColumn(name = "product_id")
+    private Product product;
+
+    @ManyToOne
+    @JoinColumn(name = "customer_id")
+    private Customer customer;
+
+
+
 }
