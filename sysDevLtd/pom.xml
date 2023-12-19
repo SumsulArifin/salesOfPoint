@@ -8,12 +8,7 @@
 		<version>3.2.0</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-<<<<<<< Updated upstream
-<!--	<packaging>war</packaging>-->
-=======
 
-
->>>>>>> Stashed changes
 	<groupId>com.example</groupId>
 	<artifactId>sysDevLtd</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
@@ -87,15 +82,7 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-<<<<<<< Updated upstream
-<!--		<dependency>-->
-<!--			<groupId>org.springframework.boot</groupId>-->
-<!--			<artifactId>spring-boot-starter-tomcat</artifactId>-->
-<!--			<scope>provided</scope>-->
-<!--		</dependency>-->
-=======
 
->>>>>>> Stashed changes
 	</dependencies>
 
 	<build>
