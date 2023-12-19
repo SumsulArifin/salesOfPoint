@@ -38,7 +38,6 @@ public class Purchase {
     @Column(name = "total_amount")
     private int totalAmount;
 
-
     @Column(name = "delivery_address")
     private String deliveryAddress;
 

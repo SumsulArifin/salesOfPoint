@@ -19,8 +19,16 @@ public class Stock {
     @Column(name = "quantity")
     private int quantity;
 
+    @Column(name = "reorder_threshold")
+    private int reorderThreshold;
+
     @OneToOne
     @JoinColumn(name = "product_id")
     private Product product;
+
+    @ManyToOne
+    @JoinColumn(name = "supplier_id")
+    private Supplier supplier;
+
 
 }

@@ -24,14 +24,23 @@ public class Sale {
     @Column(name = "sale_date")
     private Date saleDate;
 
-    @Column(name = "customer_name")
-    private int customer;
-
     @Column(name = "sale_price")
     private int price;
+
+    @Column(name = "discount")
+    private int discount;
+
+    @Column(name = "total_amount")
+    private int totalAmount;
 
     @ManyToOne
     @JoinColumn(name = "product_id")
     private Product product;
+
+    @ManyToOne
+    @JoinColumn(name = "customer_id")
+    private Customer customer;
+
+
 
 }
