@@ -1,28 +1,26 @@
 package com.example.sysDevLtd.entity.model.users;
+import com.example.sysDevLtd.entity.model.pos.BaseEntity;
 import com.example.sysDevLtd.entity.model.users.Role;
 import com.example.sysDevLtd.entity.model.users.token.Token;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import java.util.Collection;
 import java.util.List;
 
 @Data
-@Builder
 @NoArgsConstructor
+@EqualsAndHashCode(callSuper = false)
 @AllArgsConstructor
 @Entity
 @Table(name = "_user")
-public class User implements UserDetails {
+public class User extends BaseEntity implements UserDetails {
 
   @Id
   @GeneratedValue
   private Integer userId;
-  private String name;
+  private String userName;
   @Column(unique=true)
   private String email;
   private String password;
@@ -36,6 +34,7 @@ public class User implements UserDetails {
 
 
   @Override
+
   public Collection<? extends GrantedAuthority> getAuthorities() {
     return role.getAuthorities();
   }

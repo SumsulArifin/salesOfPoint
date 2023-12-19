@@ -30,21 +30,57 @@ public class AuthenticationService {
   private final AuthenticationManager authenticationManager;
 
   public AuthenticationResponse register(RegisterRequest request) {
-    var user = User.builder()
-        .name(request.getName())
-        .email(request.getEmail())
-        .password(passwordEncoder.encode(request.getPassword()))
-        .role(request.getRole())
-        .build();
-    var savedUser = repository.save(user);
+     User  user = new User();
+     user.setEmail(request.getEmail());
+     user.setUserName(request.getUserName());
+     user.setPassword(passwordEncoder.encode(request.getPassword()));
+     user.setRole(request.getRole());
+     var savedUser=repository.save(user);
     var jwtToken = jwtService.generateToken(user);
     var refreshToken = jwtService.generateRefreshToken(user);
-    saveUserToken(savedUser, jwtToken);
+    this.saveUserToken(savedUser, jwtToken);
+
     return AuthenticationResponse.builder()
-        .accessToken(jwtToken)
+            .accessToken(jwtToken)
             .refreshToken(refreshToken)
-        .build();
+            .build();
+
+
+
+//        .name(request.getName())
+//        .email(request.getEmail())
+//        .password(passwordEncoder.encode(request.getPassword()))
+//        .role(request.getRole())
+//        .build();
+//    var savedUser = repository.save(user);
+//    var jwtToken = jwtService.generateToken(user);
+//    var refreshToken = jwtService.generateRefreshToken(user);
+//    saveUserToken(savedUser, jwtToken);
+//    return AuthenticationResponse.builder()
+//        .accessToken(jwtToken)
+//            .refreshToken(refreshToken)
+//        .build();
   }
+
+//  public UserResponse registerUser(UserRegistrationDTO request) {
+//    User objNewUser = new User();
+//    objNewUser.setUserName(request.getUserName());
+//    objNewUser.setPassword(passwordEncoder.encode(request.getPassword()));
+//    objNewUser.setAssignedPrivilege(request.getAssignedPrivileges());
+//    objNewUser.setRole(request.getRole());
+//    objNewUser.setStatus(request.isUserStatus());
+//
+//    var savedUser = userRepository.save(objNewUser);
+//    var jwtToken = jwtService.generateToken(objNewUser);
+//    var refreshToken = jwtService.generateRefreshToken(objNewUser);
+//    this.saveUserToken(savedUser, jwtToken);
+//
+//    return UserResponse.builder()
+//            .accessToken(jwtToken)
+//            .refreshToken(refreshToken)
+//            .build();
+//
+//  }
 
   public AuthenticationResponse authenticate(AuthenticationRequest request) {
     authenticationManager.authenticate(
@@ -65,6 +101,24 @@ public class AuthenticationService {
         .build();
 
   }
+
+
+//  public UserResponse loginUser(UserDTO request) {
+//    authenticationManager.authenticate(
+//            new UsernamePasswordAuthenticationToken(
+//                    request.getUserName(),
+//                    request.getPassword()));
+//    var user = userRepository.findByUserName(request.getUserName())
+//            .orElseThrow();
+//    var jwtToken = jwtService.generateToken(user);
+//    var refreshToken = jwtService.generateRefreshToken(user);
+//    revokeAllUserTokens(user);
+//    saveUserToken(user, jwtToken);
+//    return UserResponse.builder()
+//            .accessToken(jwtToken)
+//            .refreshToken(refreshToken)
+//            .build();
+//  }
 
   private void saveUserToken(User user, String jwtToken) {
     var token = Token.builder()

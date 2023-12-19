@@ -22,6 +22,7 @@ public class ProductService {
      product1.setProductOwner(product.getProductOwner());
      product1.setOwnerNumber(product.getOwnerNumber());
      product1.setProductDetails(product.getProductDetails());
+     product1.setCreatedBy(product.getCreatedBy());
         productRepository.save(product1);
         return new MessageResponse(Message.SUCCESS);
     }
