@@ -14,8 +14,8 @@ import lombok.NoArgsConstructor;
 @Entity
 public class ProductDetails {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int productDetailsId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long productDetailsId;
     private int registrationNo;
     private int chassisNumber;
     private int engineNumber;

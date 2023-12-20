@@ -5,8 +5,6 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
-import java.util.ArrayList;
-import java.util.List;
 
 @Data
 @EqualsAndHashCode(callSuper = false)
@@ -15,16 +13,15 @@ import java.util.List;
 @Entity
 public class Product extends BaseEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int productId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long productId;
     private String productName;
     private String productType;
     private String ownerNumber;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "productDetailsId")
+    @OneToOne(cascade = CascadeType.ALL) // Define CascadeType based on your needs
+    @JoinColumn(name = "productDetailsId") // Name of the foreign key column in Product table
     private ProductDetails productDetails;
-
 
 
 }
