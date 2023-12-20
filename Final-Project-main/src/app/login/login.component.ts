@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
-import { Router } from '@angular/router';
+import { FormGroup, FormControl, NgForm } from '@angular/forms';
+import { Data, Router } from '@angular/router';
 import { LoginService } from './login.service';
 import { SharedService } from '../shared.service';
+import { UserAuthService } from '../authService/user-auth.service';
+import { UserStoreService } from '../authService/user-store.service';
 
 @Component({
   selector: 'app-login',
@@ -17,10 +19,9 @@ export class LoginComponent implements OnInit{
 
   constructor(
     private service: LoginService,
-
+    private auth: UserAuthService,
     private router: Router,
-
-    private sharedService: SharedService
+    private userStore: UserStoreService,
 
   ) { }
 
@@ -37,49 +38,28 @@ export class LoginComponent implements OnInit{
 
 
 
-
-
-  onSubmit(): void {
-    const email = this.form2.get('email')?.value;
-    const password = this.form2.get('password')?.value;
-
-    this.service.login(email, password).subscribe(
-      (response: any) => {
-        console.log('Response:', response);
-        if (response != null) {
-
-          this.userRole = response.role;
-
-          this.sharedService.setUserRole(response.role);
-          this.sharedService.setUserName(response.name);
-
-          
-
-            this.router.navigateByUrl("home");
-            
-          
-
-          
-
-          // Assuming the response contains employee details
-          // You can handle the response data accordingly
-          console.log('Employee Details:', response);
-
-          // Redirect to the desired page or perform other actions
-        } else {
-          // Handle login failure
-          console.error('Login failed. Employee details not found.');
-        }
+  login(loginForm: NgForm) {
+    this.service.login(loginForm.value).subscribe(
+      (response: Data) => {
+        this.auth.storeToken(response['access_token']);
+        const tokenPayload = this.auth.decodedToken();
+        console.log(tokenPayload);
+        this.userStore.setRoleForStore(tokenPayload.role);      
+        this.auth.storeRefreshToken(response['refreshToken']);
+        this.router.navigate(['/home']);
       },
       (error) => {
-        // Log the error to the console
-        console.error('HTTP error:', error);
+        console.log(error);
       }
     );
   }
 
   registerUser() {
-
-    this.router.navigateByUrl("registration");
+    this.router.navigate(['/register']);
   }
+
+
+
+
+
 }

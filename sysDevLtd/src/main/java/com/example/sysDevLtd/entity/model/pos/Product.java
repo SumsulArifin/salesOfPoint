@@ -15,13 +15,13 @@ import java.util.List;
 @Entity
 public class Product extends BaseEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long productId;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int productId;
     private String productName;
     private String productType;
     private String ownerNumber;
+
     @OneToOne(fetch = FetchType.LAZY)
-    @MapsId
     @JoinColumn(name = "productDetailsId")
     private ProductDetails productDetails;
 

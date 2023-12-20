@@ -8,6 +8,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/product")
 @CrossOrigin(originPatterns = {"*"})
@@ -19,5 +21,12 @@ public class ProductController {
     public ResponseEntity<MessageResponse> saveProduct(@RequestBody Product product) {
         MessageResponse response = productService.saveProduct(product);
         return new ResponseEntity<>(response, HttpStatus.CREATED);
+    }
+
+    @GetMapping("/getAllProduct")
+    @ResponseBody
+    public ResponseEntity<List<Product>> getAllAssignDetails() {
+        List<Product> products = productService.getAllProduct();
+        return new ResponseEntity<>(products, HttpStatus.OK);
     }
 }

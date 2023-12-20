@@ -11,19 +11,15 @@ const httpOptions = {
 })
 export class LoginService {
 
-  private url = 'http://localhost:8080/api/login';
-
-  
-
- 
-
-  constructor(private httpService: HttpClient) {}
+  PATH_OF_API = 'http://localhost:8080';
+  constructor(private http: HttpClient) {}
 
   
   
 
-  login(email: string, password: string): Observable<any> {
-    const body = { email, password };
-    return this.httpService.post(this.url, body);
+  public login(loginData: any) {
+    return this.http.post<any>(this.PATH_OF_API + '/api/v1/auth/authenticate', loginData, 
+      // headers: this.requestHeader,
+ )
   }
 }

@@ -1,6 +1,6 @@
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { RegModel } from './RegistrationModel';
+import { User } from './user.model';
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/json'
@@ -11,11 +11,11 @@ const httpOptions = {
 })
 export class RegistrationService {
 
-  private url = 'http://localhost:8080/api';
+  PATH_OF_API = 'http://localhost:8080';
 
-  constructor(private httpService: HttpClient) {}
+  constructor(private http: HttpClient) {}
 
-  addTask(task:RegModel) {
-    return this.httpService.post<RegModel>(this.url + '/registration' , task, httpOptions);
+  registerUser(user: User) {
+    return this.http.post<User>(`${this.PATH_OF_API}/api/v1/auth/register`, user);
   }
 }

@@ -8,6 +8,8 @@ import com.example.sysDevLtd.utils.MessageResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ProductService {
     @Autowired
@@ -26,5 +28,8 @@ public class ProductService {
         return new MessageResponse(Message.SUCCESS);
     }
 
+    public List<Product> getAllProduct(){
+        return productRepository.findAll();
+    }
 
 }

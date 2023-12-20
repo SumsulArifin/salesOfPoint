@@ -28,14 +28,13 @@
             <div class="card-body login-card-body">
                 <p class="login-box-msg d-flex align-items-center justify-content-center">Sign in to start your session</p>
 
-                <form [formGroup]="form2" (ngSubmit)="onSubmit()">
+                <form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
                     <div class="input-group mb-3">
-                        <input type="email" class="form-control" placeholder="Email" formControlName="email"
-                        id="email">
+                        <input type="email" class="form-control" placeholder="Email" ngModel name="email" placeholder="Email">
                         
                     </div>
                     <div class="input-group mb-3">
-                        <input type="password" class="form-control" placeholder="Password" formControlName= "password"
+                        <input type="password" class="form-control" placeholder="Password"  ngModel name="password" placeholder="Password"
                         id="password">
                         
                     </div>
