@@ -29,6 +29,6 @@ public class Supplier {
     @Column(name = "phone_number")
     private String phoneNumber;
 
-    @OneToMany(mappedBy = "supplier")
-    private List<Stock> stocks;
+    @OneToMany(mappedBy = "productId")
+    private List<Product> products;
 }

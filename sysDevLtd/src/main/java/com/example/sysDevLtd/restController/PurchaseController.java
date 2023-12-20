@@ -8,4 +8,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/purchase")
 @CrossOrigin(originPatterns = {"*"})
 public class PurchaseController {
+
+
 }
