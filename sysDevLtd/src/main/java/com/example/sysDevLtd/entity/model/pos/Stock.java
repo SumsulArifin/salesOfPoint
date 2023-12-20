@@ -12,7 +12,7 @@ public class Stock {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long stockId;
 
     @Column(name = "quantity")
     private int quantity;

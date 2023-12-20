@@ -13,7 +13,7 @@ public class Purchase {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long purchasesId;
 
     @Column(name = "quantity")
     private int quantity;

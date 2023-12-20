@@ -19,7 +19,6 @@ public class Product extends BaseEntity {
     private Long productId;
     private String productName;
     private String productType;
-
     private String ownerNumber;
     @OneToOne(fetch = FetchType.LAZY)
     @MapsId

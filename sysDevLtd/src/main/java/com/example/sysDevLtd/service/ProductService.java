@@ -19,7 +19,6 @@ public class ProductService {
         Product product1 = new Product();
      product1.setProductName(product.getProductName());
      product1.setProductType(product.getProductType());
-     product1.setProductOwner(product.getProductOwner());
      product1.setOwnerNumber(product.getOwnerNumber());
      product1.setProductDetails(product.getProductDetails());
      product1.setCreatedBy(product.getCreatedBy());

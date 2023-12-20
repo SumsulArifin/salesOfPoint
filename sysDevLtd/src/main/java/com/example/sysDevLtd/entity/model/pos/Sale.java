@@ -14,7 +14,7 @@ public class Sale {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long saleId;
 
     @Column(name = "quantity")
     private int quantity;
