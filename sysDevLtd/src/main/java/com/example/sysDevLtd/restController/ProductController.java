@@ -24,7 +24,6 @@ public class ProductController {
         if (product == null) {
             return new ResponseEntity<>(new MessageResponse(Message.FAILED), HttpStatus.BAD_REQUEST);
         }
-
         MessageResponse response = productService.saveProduct(product);
         if (response.getMessage() == Message.SUCCESS) {
             return new ResponseEntity<>(response, HttpStatus.CREATED);
@@ -32,13 +31,6 @@ public class ProductController {
             return new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-//    @PostMapping("/save")
-//    public ResponseEntity<MessageResponse> saveProduct(@RequestBody Product product) {
-//        MessageResponse response = productService.saveProduct(product);
-//        return new ResponseEntity<>(response, HttpStatus.CREATED);
-//    }
-
-
 
     @GetMapping("/getAllProduct")
     public ResponseEntity<List<Product>> getAllProducts() {
@@ -46,10 +38,15 @@ public class ProductController {
         return new ResponseEntity<>(products, HttpStatus.OK);
     }
 
-//    @GetMapping("/getAllProduct")
-//    @ResponseBody
-//    public ResponseEntity<List<Product>> getAllAssignDetails() {
-//        List<Product> products = productService.getAllProduct();
-//        return new ResponseEntity<>(products, HttpStatus.OK);
-//    }
+    @GetMapping({"/getProduct/{id}"})
+    public Product getProduct(@PathVariable("id") Long id) {
+        Product product = this.productService.productGet(id);
+        return product;
+    }
+
+    @DeleteMapping({"/deleteProduct/{id}"})
+    public void deleteProduct(@PathVariable("id") Long id) {
+        this.productService.productDelete(id);
+    }
+
 }
