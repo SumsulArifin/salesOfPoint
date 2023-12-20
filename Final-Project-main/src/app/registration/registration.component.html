@@ -1,0 +1,83 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Registration</title>
+
+  <!-- icheck bootstrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+        height: 100vh;
+       
+        margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+</style>
+</head>
+<body class="hold-transition register-page d-flex align-items-center justify-content-center">
+  <div class="register-box">
+    <div class="register-logo d-flex align-items-center justify-content-center">
+      <h3><b>Registration</b></h3>
+    </div>
+
+    <div class="card">
+      <div class="card-body register-card-body ">
+        <p class="login-box-msg d-flex align-items-center justify-content-center">Register a new membership</p>
+
+        <form [formGroup]="form2" (ngSubmit)="submit()">
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Full name" formControlName="name">
+            
+          </div>
+          <div class="input-group mb-3">
+            <input type="email" class="form-control" placeholder="Email" formControlName="email">
+            
+          </div>
+          <div class="input-group mb-3">
+            <input type="password" class="form-control" placeholder="Password" formControlName="password" name="password">
+            
+          </div>
+          <div class="input-group mb-3">
+            <input type="password" class="form-control" placeholder="Role" formControlName="role" name="role">
+           
+          </div>
+          <div class="row">
+           
+            <div class="col-12">
+              <button type="submit" class="btn btn-primary btn-block">Register</button>
+            </div>
+          </div>
+        </form>
+
+        <div class="social-auth-links text-center">
+          <p>- OR -</p>
+          <a href="#" class="btn btn-block btn-primary">
+            <i class="fab fa-facebook mr-2"></i>
+            Sign up using Facebook
+          </a>
+          <a href="#" class="btn btn-block btn-danger">
+            <i class="fab fa-google-plus mr-2"></i>
+            Sign up using Google+
+          </a>
+        </div>
+
+        <a [routerLink]="['login']" class="text-center d-flex align-items-center justify-content-center">I already have a membership</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- jQuery -->
+  <script src="../../plugins/jquery/jquery.min.js"></script>
+  <!-- Bootstrap 4 -->
+  <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- AdminLTE App -->
+  <script src="../../dist/js/adminlte.min.js"></script>
+</body>
+</html>
+
+
