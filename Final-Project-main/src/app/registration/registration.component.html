@@ -43,9 +43,14 @@
             
           </div>
           <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Role" [(ngModel)]="user.role" name="role">
-           
-          </div>
+            <select class="form-control" [(ngModel)]="user.role" name="role">
+                <option value="" disabled selected>Select Role</option>
+                <option value="ADMIN">ADMIN</option>
+                <option value="MANAGER">MANAGER</option>
+                <option value="SALES OFFICER">SALES OFFICER</option>
+            </select>
+        </div>
+        
           <div class="row">
            
             <div class="col-12">

@@ -26,9 +26,6 @@
                             <button type="button" class="btn btn-tool" data-card-widget="collapse">
                                 <i class="fas fa-minus"></i>
                             </button>
-                            <button type="button" class="btn btn-tool" data-card-widget="remove">
-                                <i class="fas fa-times"></i>
-                            </button>
                         </div>
                     </div>
                     <div class="card-body">
@@ -178,9 +175,6 @@
                             <button type="button" class="btn btn-tool" data-card-widget="collapse">
                                 <i class="fas fa-minus"></i>
                             </button>
-                            <button type="button" class="btn btn-tool" data-card-widget="remove">
-                                <i class="fas fa-times"></i>
-                            </button>
                         </div>
                     </div>
                     <div class="card-body">
@@ -219,9 +213,6 @@
                             <button type="button" class="btn btn-tool" data-card-widget="collapse">
                                 <i class="fas fa-minus"></i>
                             </button>
-                            <button type="button" class="btn btn-tool" data-card-widget="remove">
-                                <i class="fas fa-times"></i>
-                            </button>
                         </div>
                     </div>
                     <div class="card-body">
@@ -229,24 +220,58 @@
                             <div class="col-md-6">
 
                                 <div class="form-group">
-                                    <label>Quantity</label>
-                                    <input type="number" class="form-control" id="quantity" placeholder="Quantity"
-                                        formControlName="quantity">
+                                    <label>Purchase Date</label>
+                                    <input type="date" class="form-control" id="purchaseDate"
+                                        placeholder="Purchase Date" formControlName="purchaseDate">
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Payment Method</label>
+                                    <select class="form-control" id="payment" formControlName="payment">
+                                        <option value="" disabled selected>Select Payment Method</option>
+                                        <option value="cash">Cash</option>
+                                        <option value="cheque">Cheque</option>
+                                        <option value="credit-card">Credit Card</option>
+                                        <option value="debit-card">Debit Card</option>
+                                        <option value="paypal">PayPal</option>
+                                        <option value="bank-transfer">Bank Transfer</option>
+                                    </select>
+                                </div>
+                                
+
+                                <div class="form-group">
+                                    <label>Total Amount</label>
+                                    <input type="number" class="form-control" id="totalAmount"
+                                        placeholder="Total Amount" formControlName="totalAmount">
                                 </div>
                             </div>
 
                             <div class="col-md-6">
 
                                 <div class="form-group">
-                                    <label>Supplier</label>
-                                    <select class="form-control" id="supplier" formControlName="supplier">
-                                        <option value="" disabled selected>Choose Drive Type</option>
-                                        <option value="front-wheel-drive">Front Wheel Drive</option>
-                                        <option value="rear-wheel-drive">Rear Wheel Drive</option>
-                                        <option value="all-wheel-drive">All Wheel Drive</option>
-                                        <option value="four-wheel-drive">Four Wheel Drive</option>
-                                    </select>
+                                    <label>Price</label>
+                                    <input type="number" class="form-control" id="price" placeholder="Price"
+                                        formControlName="price">
                                 </div>
+
+                                <div class="form-group">
+                                    <label>Discount</label>
+                                    <input type="number" class="form-control" id="discount" placeholder="Discount"
+                                        formControlName="discount">
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Warranty</label>
+                                    <input type="text" class="form-control" id="warranty" placeholder="Warranty"
+                                        formControlName="warranty">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-12">
+                            <div class="form-group">
+                                <label>Delivery Address</label>
+                                <textarea class="form-control" id="deliveryAddress" placeholder="Delivery Address"
+                                    formControlName="deliveryAddress"></textarea>
                             </div>
                         </div>
                     </div>

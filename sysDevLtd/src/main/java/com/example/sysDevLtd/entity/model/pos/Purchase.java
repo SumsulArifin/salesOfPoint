@@ -18,9 +18,6 @@ public class Purchase extends BaseEntity{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long purchasesId;
 
-    @Column(name = "quantity")
-    private int quantity;
-
     @Column(name = "purchase_date")
     private Date purchaseDate;
 
@@ -38,6 +35,9 @@ public class Purchase extends BaseEntity{
 
     @Column(name = "delivery_address")
     private String deliveryAddress;
+
+    @Column(name = "warranty")
+    private String warranty;
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "stockId")

@@ -40,9 +40,14 @@ export class NavbarComponent implements OnInit{
   }
 
   navigate() {
-    this.router.navigateByUrl("purchase", { skipLocationChange: true });
+    this.router.navigateByUrl("purchase");
    
   }
+
+  // navigate() {
+  //   this.router.navigateByUrl("purchase", { skipLocationChange: true });
+   
+  // }
 
   public isLoggedIn() {
     return this.userAuthService.isLoggedIn();
