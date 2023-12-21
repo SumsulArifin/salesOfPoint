@@ -17,16 +17,18 @@ public class Stock {
     @Column(name = "quantity")
     private int quantity;
 
-    @Column(name = "reorder_threshold")
-    private int reorderThreshold;
+    @Column(name = "status")
+    private boolean status = false;
 
     @OneToOne
     @JoinColumn(name = "product_id")
     private Product product;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "supplier_id")
     private Supplier supplier;
 
+    //    @Column(name = "reorder_threshold")
+    //    private int reorderThreshold;
 
 }
