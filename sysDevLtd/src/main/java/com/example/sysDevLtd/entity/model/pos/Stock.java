@@ -17,10 +17,10 @@ public class Stock {
     private Long stockId;
 
     @Column(name = "quantity")
-    private int quantity;
+    private Integer quantity;
 
     @Column(name = "status")
-    private boolean status = false;
+    private boolean status = true;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "product_id")

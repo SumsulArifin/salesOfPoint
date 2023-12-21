@@ -8,6 +8,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { HomeComponent } from './home/home.component';
+import { PurchaseComponent } from './purchase/purchase.component';
 
 
 
@@ -24,6 +25,7 @@ import { HomeComponent } from './home/home.component';
     LoginComponent,
     RegistrationComponent,
     HomeComponent,
+    PurchaseComponent,
     
 
   ],

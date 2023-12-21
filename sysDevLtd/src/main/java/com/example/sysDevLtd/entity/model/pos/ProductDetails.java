@@ -8,6 +8,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Date;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -16,19 +18,19 @@ public class ProductDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long productDetailsId;
-    private int registrationNo;
-    private int chassisNumber;
-    private int engineNumber;
-    private int cubicCapacity;
-    private int RPM;
-    private int noOfTyres;
-    private int numberOfCylinders;
-    private String yearOfManufacture;
+    private String registrationNo;
+    private String chassisNumber;
+    private String engineNumber;
+    private String cubicCapacity;
+    private String RPM;
+    private Integer noOfTyres;
+    private Integer numberOfCylinders;
+    private Date yearOfManufacture;
     private String Body;
     private String engineCapacity;
-    private String mileage;
+    private Integer mileage;
     private String drive;
-    private String seatingCapacity;
+    private Integer seatingCapacity;
     private String fuelType;
     private String exteriorColor;
     private String carFeatures;
