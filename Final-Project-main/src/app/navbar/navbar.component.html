@@ -216,27 +216,12 @@
             <!-- ----------------------------------------------------------------------------- -->
             <ng-container *ngIf="role === 'ADMIN'">
             <li class="nav-item">
-              <a class="nav-link">
-                <i class="fas fa-globe"></i>
+              <a class="nav-link" (click)="navigate()">
+                <i class="fas fa-money-check-alt"></i>
                 <p>
-                  Product
-                  <i class="right fas fa-angle-left"></i>
+                  Purchase                
                 </p>
               </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="pages/charts/chartjs.html" class="nav-link" >
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Add Product</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="pages/charts/chartjs.html" class="nav-link" >
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Product List</p>
-                  </a>
-                </li>
-              </ul>
             </li>
 
             </ng-container>

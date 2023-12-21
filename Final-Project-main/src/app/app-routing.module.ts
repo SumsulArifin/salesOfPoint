@@ -4,6 +4,7 @@ import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { PurchaseComponent } from './purchase/purchase.component';
 
 
 
@@ -18,6 +19,7 @@ const routes: Routes = [
   {path:'login',component:LoginComponent},
   {path: "register" , component: RegistrationComponent},
   {path: "home" , component: HomeComponent},
+  {path: "purchase" , component: PurchaseComponent},
   {path: "navbar" , component: NavbarComponent},
   {path: " " , component: LoginComponent},
 
