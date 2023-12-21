@@ -22,7 +22,7 @@ public class Stock {
     @Column(name = "status")
     private boolean status = false;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "product_id")
     private Product product;
 
