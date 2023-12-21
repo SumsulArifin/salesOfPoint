@@ -27,20 +27,14 @@ public class ProductService {
         return new MessageResponse(Message.SUCCESS);
     }
 
-
-//    public MessageResponse saveProduct(Product product) {
-//        Product product1 = new Product();
-//     product1.setProductName(product.getProductName());
-//     product1.setProductType(product.getProductType());
-//     product1.setOwnerNumber(product.getOwnerNumber());
-//     product1.setProductDetails(product.getProductDetails());
-//     product1.setCreatedBy(product.getCreatedBy());
-//        productRepository.save(product1);
-//        return new MessageResponse(Message.SUCCESS);
-//    }
-
     public List<Product> getAllProduct(){
         return productRepository.findAll();
     }
 
+    public Product productGet(Long id) {
+        return this.productRepository.findById(id).orElse(new Product());
+    }
+
+    public void productDelete(Long id) {productRepository.deleteById(id);
+    }
 }

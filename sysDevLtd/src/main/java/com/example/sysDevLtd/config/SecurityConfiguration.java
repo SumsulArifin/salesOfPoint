@@ -38,7 +38,8 @@ public class SecurityConfiguration {
             "/assignDetails/**",
             "/api/admin/**",
             "/department/**",
-            "/product/**"};
+            "/product/**",
+            "/purchase/**"};
     private final JwtAuthenticationFilter jwtAuthFilter;
     private final AuthenticationProvider authenticationProvider;
     private final LogoutHandler logoutHandler;
