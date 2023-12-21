@@ -8,7 +8,6 @@ import lombok.NoArgsConstructor;
 
 import java.util.Date;
 @Data
-//@EqualsAndHashCode(callSuper = false)
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
@@ -24,9 +23,6 @@ public class Purchase {
 
     @Column(name = "purchase_date")
     private Date purchaseDate;
-
-    @Column(name = "supplier")
-    private String supplier;
 
     @Column(name = "price")
     private int price;
@@ -44,7 +40,15 @@ public class Purchase {
     private String deliveryAddress;
 
     @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "stockId")
+    private Stock stock;
+
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "product_id")
     private Product product;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "supplierId")
+    private Supplier supplier;
 
 }
