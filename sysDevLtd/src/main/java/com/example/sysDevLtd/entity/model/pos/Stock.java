@@ -26,8 +26,8 @@ public class Stock {
     @JoinColumn(name = "product_id")
     private Product product;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "supplier_id")
+    @ManyToOne
+    @JoinColumn(name = "supplierId", nullable = false)
     private Supplier supplier;
 
     //    @Column(name = "reorder_threshold")

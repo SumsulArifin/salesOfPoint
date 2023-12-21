@@ -12,14 +12,64 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/supplier")
 @CrossOrigin(originPatterns = {"*"})
 public class SupplierController {
 
-//    @Autowired
-//    SupplierService supplierService;
+    @Autowired
+    SupplierService supplierService;
+
+    @PostMapping("/save")
+    public ResponseEntity<MessageResponse> saveSupplier(@RequestBody Supplier supplier) {
+        MessageResponse newSupplier = supplierService.saveSupplier(supplier);
+        return new ResponseEntity<>(newSupplier, HttpStatus.CREATED);
+    }
+
+    // retrieve all Department
+    @GetMapping("/getAll")
+    @ResponseBody
+    public ResponseEntity<List<Supplier>> getAllSupplier() {
+        List<Supplier> departments = supplierService.getAllSupplier();
+        return new ResponseEntity<>(departments, HttpStatus.OK);
+    }
+
+    // Update single Department information
+    @PutMapping("/updateSupplier/{deptId}")
+    public ResponseEntity<Optional<Supplier>> updateDepartment(@PathVariable int deptId, @RequestBody  Supplier supplier) {
+        Optional<Supplier> supplier1 = supplierService.updateSupplier(deptId, supplier);
+        return new ResponseEntity<Optional<Supplier>>(supplier1, HttpStatus.OK);
+    }
+
+    // Department Status Change API
+//    @PutMapping("/statusChange/{deptId}")
+//    public ResponseEntity<Optional<Department>> changeDepartmentStatus(@PathVariable int deptId, @RequestBody  DepartmentDTO departmentDTO) {
+//        Optional<Department> divisionStatus = departmentService.updateDepartmentStatus(deptId, departmentDTO);
+//        return new ResponseEntity<Optional<Department>>(divisionStatus, HttpStatus.OK);
+//    }
+
+    // Delete Department by id
+//    @DeleteMapping("/deleteDepartment/{deptId}")
+//    public ResponseEntity<?> deleteDepartmentById(@PathVariable("deptId") int deptId) {
+//        departmentService.deleteDepartmentById(deptId);
+//        return new ResponseEntity<>(HttpStatus.OK);
+//    }
+
+    // API to retrieve Department by id
+    @GetMapping("/getSupplierById/{supplierId}")
+    public ResponseEntity<Supplier> getDepartmentById(@PathVariable("supplierId") long supplierId) {
+        Supplier supplier = supplierService.findSupplierById(supplierId);
+        return new ResponseEntity<>(supplier, HttpStatus.OK);
+    }
+
+
+
+
+
+
+
 //
 //    @PostMapping("/save")
 //    public ResponseEntity<MessageResponse> saveSupplier(@RequestBody Supplier supplier) {
