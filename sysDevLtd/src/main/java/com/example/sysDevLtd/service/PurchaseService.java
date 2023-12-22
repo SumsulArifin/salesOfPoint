@@ -2,6 +2,7 @@ package com.example.sysDevLtd.service;
 
 import com.example.sysDevLtd.entity.model.pos.Product;
 import com.example.sysDevLtd.entity.model.pos.Purchase;
+import com.example.sysDevLtd.entity.model.pos.Supplier;
 import com.example.sysDevLtd.repository.PurchaseRepository;
 import com.example.sysDevLtd.utils.Message;
 import com.example.sysDevLtd.utils.MessageResponse;
@@ -16,7 +17,7 @@ public class PurchaseService {
     @Autowired
     PurchaseRepository purchaseRepository;
     public MessageResponse savePurchase(Purchase purchase) {
-
+        Supplier supplier = purchase.getStock().getSupplier();
         purchaseRepository.save(purchase);
         return new MessageResponse(Message.SUCCESS);
     }

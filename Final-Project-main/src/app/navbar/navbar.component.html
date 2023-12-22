@@ -200,7 +200,7 @@
             role="menu" data-accordion="false">
   
             <li class="nav-item">
-              <a href="#" class="nav-link active" routerLink="home">
+              <a class="nav-link active" (click)="navigateHome()">
                 <i class="nav-icon fas fa-tachometer-alt"></i>
                 <p>
                   Dashboard
@@ -216,7 +216,7 @@
             <!-- ----------------------------------------------------------------------------- -->
             
             <li class="nav-item">
-              <a class="nav-link" (click)="navigate()">
+              <a class="nav-link" (click)="navigatePurchase()">
                 <i class="fas fa-money-check-alt"></i>
                 <p>
                   Purchase                

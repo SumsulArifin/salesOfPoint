@@ -39,8 +39,13 @@ export class NavbarComponent implements OnInit{
     
   }
 
-  navigate() {
+  navigatePurchase() {
     this.router.navigateByUrl("purchase");
+   
+  }
+
+  navigateHome() {
+    this.router.navigateByUrl("home");
    
   }
 
