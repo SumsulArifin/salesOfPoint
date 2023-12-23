@@ -31,10 +31,7 @@ export interface Purchase {
         };
       };
       supplier: {
-        supplierName: string;
-        contactPerson: string;
-        email: string;
-        phoneNumber: string;
+        supplierId: number;
       };
     };
   }

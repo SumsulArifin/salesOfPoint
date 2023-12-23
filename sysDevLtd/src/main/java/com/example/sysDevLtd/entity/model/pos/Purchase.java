@@ -43,12 +43,5 @@ public class Purchase extends BaseEntity{
     @JoinColumn(name = "stockId")
     private Stock stock;
 
-//    @ManyToOne(cascade = CascadeType.ALL)
-//    @JoinColumn(name = "product_id")
-//    private Product product;
-//
-//    @ManyToOne(cascade = CascadeType.ALL)
-//    @JoinColumn(name = "supplierId")
-//    private Supplier supplier;
 
 }

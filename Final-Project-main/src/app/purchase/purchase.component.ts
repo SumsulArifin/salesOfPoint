@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { PurchaseService } from './purchase.service';
+import { Supplier } from './SupplierModel';
 
 @Component({
   selector: 'app-purchase',
@@ -12,10 +13,20 @@ export class PurchaseComponent implements OnInit{
 
   form2!: FormGroup;
 
+  supplierList !: Supplier[];
+
 
   constructor(private services: PurchaseService, private router: Router) { }
 
   ngOnInit(): void {
+
+    this.services.getSupplier().subscribe((suppliers: Supplier[]) => {
+      this.supplierList = suppliers;
+      console.log(this.supplierList);
+      
+    });
+
+
     this.form2 = new FormGroup({
       purchaseDate: new FormControl('', Validators.required),
       price: new FormControl('', Validators.required),
@@ -27,7 +38,7 @@ export class PurchaseComponent implements OnInit{
       stock: new FormGroup({
         quantity: new FormControl('', Validators.required),
         product: new FormGroup({
-          productName: new FormControl('', Validators.required),
+          productName: new FormControl(''),
           productType: new FormControl('', Validators.required),
           productDetails: new FormGroup({
             registrationNo: new FormControl('', Validators.required),
@@ -49,13 +60,11 @@ export class PurchaseComponent implements OnInit{
           })
         }),
         supplier: new FormGroup({
-          supplierName: new FormControl('', Validators.required),
-          contactPerson: new FormControl('', Validators.required),
-          email: new FormControl('', [Validators.required, Validators.email]),
-          phoneNumber: new FormControl('', Validators.required),
+          supplierId: new FormControl('', Validators.required),
         })
       })
     });
+    
   }
 
   submit() {

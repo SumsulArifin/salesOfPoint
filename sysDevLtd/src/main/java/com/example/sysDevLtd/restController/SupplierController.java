@@ -29,7 +29,7 @@ public class SupplierController {
     }
 
     // retrieve all Department
-    @GetMapping("/getAll")
+    @GetMapping("/getAllSupplier")
     @ResponseBody
     public ResponseEntity<List<Supplier>> getAllSupplier() {
         List<Supplier> departments = supplierService.getAllSupplier();
