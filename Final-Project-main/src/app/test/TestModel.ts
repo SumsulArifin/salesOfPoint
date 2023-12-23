@@ -1,9 +1,10 @@
-export interface Book {
+export interface BookFormData {
+  book: {
     bookName: string;
     bookType: string;
-    author: {
-      published: string;
-      authorName: string;
-    };
-  }
-  
+  };
+  author: {
+    authorName: string;
+    published: string;
+  };
+}

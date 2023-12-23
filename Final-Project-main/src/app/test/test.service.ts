@@ -1,9 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, tap } from 'rxjs';
-import { Purchase } from '../purchase/PurchaseModel';
-import { Supplier } from '../purchase/SupplierModel';
-import { Book } from './TestModel';
+
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/json'
@@ -14,7 +12,7 @@ const httpOptions = {
 })
 export class TestService {
 
-  private url = 'http://localhost:8080';
+  private url = 'http://localhost:8080/book';
 
   constructor(private httpService: HttpClient) { }
 
@@ -26,8 +24,12 @@ export class TestService {
   //   return this.httpService.post<Book>(this.url + '/save' , book, httpOptions);
   // }
 
-  createBook(data: Book): Observable<any> {
-    return this.httpService.post<any>(`${this.url}/book/save`, data);
+  saveBook(data: any): Observable<any> {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
+
+    return this.httpService.post<any>(`${this.url}/save`, { ...data.book, ...data.author }, { headers });
   }
   
   
