@@ -22,18 +22,17 @@ public class ProductDetails {
     private String chassisNumber;
     private String engineNumber;
     private String cubicCapacity;
-    private String RPM;
     private Integer noOfTyres;
     private Integer numberOfCylinders;
     private Date yearOfManufacture;
-    private String Body;
-    private String engineCapacity;
+    private String body;
     private Integer mileage;
     private String drive;
     private Integer seatingCapacity;
     private String fuelType;
     private String exteriorColor;
     private String carFeatures;
+    private String exportedFrom;
 
 
 }

@@ -1,13 +1,8 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Purchase } from './PurchaseModel';
-import { Supplier } from './SupplierModel';
 import { Observable } from 'rxjs';
-const httpOptions = {
-  headers: new HttpHeaders({
-    'Content-Type': 'application/json'
-  })
-}
+import { PurchaseFormData } from './PurchaseModel';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -19,12 +14,78 @@ export class PurchaseService {
 
   constructor(private httpService: HttpClient) {}
 
-  addTask(task:Purchase) {
-    return this.httpService.post<Purchase>(this.url + '/save' , task, httpOptions);
-  }
 
-  getSupplier() : Observable<Supplier[]> {
-    const task = this.httpService.get<Supplier[]>(this.urlSupplier + '/getAllSupplier');
-    return task;
+
+  savePurchase(data: any): Observable<any> {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
+  
+    const requestBody = {
+      purchaseDate: data.purchase.purchaseDate,
+      price: data.purchase.price,
+      payment: data.purchase.payment,
+      discount: data.purchase.discount,
+      totalAmount: data.purchase.totalAmount,
+      deliveryAddress: data.purchase.deliveryAddress,
+      warranty: data.purchase.warranty,
+      stock: {
+        quantity: data.stock.quantity,
+        product: {
+          productName: data.product.productName,
+          productType: data.product.productType,
+          productDetails: {
+            registrationNo: data.productDetails.registrationNo,
+            chassisNumber: data.productDetails.chassisNumber,
+            engineNumber: data.productDetails.engineNumber,
+            cubicCapacity: data.productDetails.cubicCapacity,
+            noOfTyres: data.productDetails.noOfTyres,
+            numberOfCylinders: data.productDetails.numberOfCylinders,
+            yearOfManufacture: data.productDetails.yearOfManufacture,
+            engineCapacity: data.productDetails.engineCapacity,
+            mileage: data.productDetails.mileage,
+            drive: data.productDetails.drive,
+            seatingCapacity: data.productDetails.seatingCapacity,
+            fuelType: data.productDetails.fuelType,
+            exteriorColor: data.productDetails.exteriorColor,
+            carFeatures: data.productDetails.carFeatures,
+            body: data.productDetails.body,
+            exportedFrom: data.productDetails.exportedFrom,
+          }
+        },
+        supplier: {
+          supplierId: data.stock.supplier.supplierId,
+        }
+      }
+    };
+    console.log('Request Body:', requestBody);
+
+  
+    return this.httpService.post<any>(`${this.url}/save`, requestBody, { headers });
   }
+  
+  
+  
+
+  // savePurchase(data: any): Observable<any> {
+  //   const headers = new HttpHeaders({
+  //     'Content-Type': 'application/json'
+  //   });
+  
+  //   const requestBody = {
+  //     bookName: data.book.bookName,
+  //     bookType: data.book.bookType,
+  //     author: {
+  //       published: data.author.published,
+  //       authorName: data.author.authorName
+  //     }
+  //   };
+  
+  //   return this.httpService.post<any>(`${this.url}/save`, requestBody, { headers });
+  // }
+
+  // getSupplier() : Observable<Supplier[]> {
+  //   const task = this.httpService.get<Supplier[]>(this.urlSupplier + '/getAllSupplier');
+  //   return task;
+  // }
 }
