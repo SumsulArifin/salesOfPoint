@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { PurchaseFormData } from './PurchaseModel';
+import { Supplier } from './SupplierModel';
 
 @Injectable({
   providedIn: 'root'
@@ -31,6 +32,7 @@ export class PurchaseService {
       warranty: data.purchase.warranty,
       stock: {
         quantity: data.stock.quantity,
+        supplierId: data.stock.quantity,
         product: {
           productName: data.product.productName,
           productType: data.product.productType,
@@ -54,38 +56,17 @@ export class PurchaseService {
           }
         },
         supplier: {
-          supplierId: data.stock.supplier.supplierId,
+          supplierId: data.supplier.supplierId,
         }
       }
     };
     console.log('Request Body:', requestBody);
-
-  
     return this.httpService.post<any>(`${this.url}/save`, requestBody, { headers });
   }
   
-  
-  
 
-  // savePurchase(data: any): Observable<any> {
-  //   const headers = new HttpHeaders({
-  //     'Content-Type': 'application/json'
-  //   });
-  
-  //   const requestBody = {
-  //     bookName: data.book.bookName,
-  //     bookType: data.book.bookType,
-  //     author: {
-  //       published: data.author.published,
-  //       authorName: data.author.authorName
-  //     }
-  //   };
-  
-  //   return this.httpService.post<any>(`${this.url}/save`, requestBody, { headers });
-  // }
-
-  // getSupplier() : Observable<Supplier[]> {
-  //   const task = this.httpService.get<Supplier[]>(this.urlSupplier + '/getAllSupplier');
-  //   return task;
-  // }
+  getSupplier() : Observable<Supplier[]> {
+    const task = this.httpService.get<Supplier[]>(this.urlSupplier + '/getAllSupplier');
+    return task;
+  }
 }

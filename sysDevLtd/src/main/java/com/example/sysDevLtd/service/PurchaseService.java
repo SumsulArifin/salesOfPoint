@@ -17,7 +17,6 @@ public class PurchaseService {
     @Autowired
     PurchaseRepository purchaseRepository;
     public MessageResponse savePurchase(Purchase purchase) {
-        Supplier supplier = purchase.getStock().getSupplier();
         purchaseRepository.save(purchase);
         return new MessageResponse(Message.SUCCESS);
     }

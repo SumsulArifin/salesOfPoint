@@ -156,6 +156,7 @@
                                     <label>Fuel Type</label>
                                     <select class="form-control" id="fuelType" formControlName="fuelType"
                                         placeholder="Fuel Type">
+                                        <option value="" disabled selected>Choose Fuel Type</option>
                                         <option value="petrol">Petrol</option>
                                         <option value="diesel">Diesel</option>
                                         <option value="electric">Electric</option>
@@ -166,6 +167,7 @@
                                 <div class="form-group" formGroupName="productDetails">
                                     <label>Exported From</label>
                                     <select class="form-control" id="exportedFrom" formControlName="exportedFrom">
+                                        <option value="" disabled selected>Choose Country</option>
                                         <option value="Japan">Japan</option>
                                         <option value="Dubai">Dubai</option>
                                         <option value="China">China</option>
@@ -209,6 +211,7 @@
                                 <div class="form-group" formGroupName="supplier">
                                     <label>Supplier</label>
                                     <select class="form-control" formControlName="supplierId">
+                                        <option value="" disabled selected>Choose Supplier</option>
                                         <option *ngFor="let v of supplierList" [value]="v.supplierId">{{v.supplierName}}</option>
                                     </select>
                                 </div>

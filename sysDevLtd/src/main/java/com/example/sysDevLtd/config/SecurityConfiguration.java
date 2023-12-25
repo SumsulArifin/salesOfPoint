@@ -41,7 +41,8 @@ public class SecurityConfiguration {
             "/product/**",
             "/purchase/**",
             "/supplier/**",
-            "/book/**"};
+            "/book/**",
+            "/productDetails/**"};
     private final JwtAuthenticationFilter jwtAuthFilter;
     private final AuthenticationProvider authenticationProvider;
     private final LogoutHandler logoutHandler;

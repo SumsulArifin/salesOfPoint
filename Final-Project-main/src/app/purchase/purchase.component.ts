@@ -22,6 +22,10 @@ export class PurchaseComponent implements OnInit{
 
   ngOnInit(): void {
 
+    this.services.getSupplier().subscribe((newPost: Supplier[]) => {
+      this.supplierList = newPost;
+    })
+
     this.buildForm();
   }
 
@@ -38,6 +42,7 @@ export class PurchaseComponent implements OnInit{
       }),
       stock: this.formBuilder.group({
         quantity: ['', Validators.required],
+        supplierId: [''],
       }),
       product: this.formBuilder.group({
         productName: ['', Validators.required],

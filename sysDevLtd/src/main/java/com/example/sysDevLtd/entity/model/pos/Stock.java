@@ -30,7 +30,6 @@ public class Stock {
     @JoinColumn(name = "supplierId", nullable = false)
     private Supplier supplier;
 
-    //    @Column(name = "reorder_threshold")
-    //    private int reorderThreshold;
+
 
 }
