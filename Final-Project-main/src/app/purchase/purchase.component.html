@@ -41,9 +41,26 @@
                             <div class="col-md-6">
                                 <div class="form-group" formGroupName="product">
                                     <label>Product Type</label>
+                                    <select class="form-control" id="p-type" formControlName="productType">
+                                        <option value="" disabled selected>Choose Product Type</option>
+                                        <option value="Sedan">Sedan</option>
+                                        <option value="SUV">SUV</option>
+                                        <option value="Station Wagon">Station Wagon</option>
+                                        <option value="Pickup Truck">Pickup Truck</option>
+                                        <option value="Minivan ">Minivan </option>
+                                        <option value="Sports Cars">Sports Cars</option>
+                                        <option value="Luxury Cars">Luxury Cars</option>
+                                        <option value="Convertible">Convertible </option>
+                                        <option value="Mini Truck">Mini Truck</option>
+                                        <option value="Truck ">Truck </option>
+                                        <option value="Sports Cars">Sports Cars</option>
+                                    </select>
+                                </div>
+                                <!-- <div class="form-group" formGroupName="product">
+                                    <label>Product Type</label>
                                     <input type="text" class="form-control" id="p-type" placeholder="Product Type"
                                         formControlName="productType">
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                     </div>

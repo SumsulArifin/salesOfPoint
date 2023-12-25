@@ -32,7 +32,6 @@ export class PurchaseService {
       warranty: data.purchase.warranty,
       stock: {
         quantity: data.stock.quantity,
-        supplierId: data.stock.quantity,
         product: {
           productName: data.product.productName,
           productType: data.product.productType,
@@ -44,7 +43,6 @@ export class PurchaseService {
             noOfTyres: data.productDetails.noOfTyres,
             numberOfCylinders: data.productDetails.numberOfCylinders,
             yearOfManufacture: data.productDetails.yearOfManufacture,
-            engineCapacity: data.productDetails.engineCapacity,
             mileage: data.productDetails.mileage,
             drive: data.productDetails.drive,
             seatingCapacity: data.productDetails.seatingCapacity,
