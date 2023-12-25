@@ -29,7 +29,5 @@ public class Stock {
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "supplierId", nullable = false)
     private Supplier supplier;
-
-
-
+    
 }
