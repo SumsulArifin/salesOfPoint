@@ -23,7 +23,7 @@ public class StockService {
     }
 
     public List<Stock> getAllStock() {
-        return stockRepository.findAll();
+        return stockRepository.findByStatusTrue();
     }
 
     public long countByProductName(String productName) {

@@ -31,6 +31,8 @@ public interface StockRepository extends JpaRepository<Stock,Long> {
     @Query("SELECT COUNT(s) FROM Stock s WHERE s.product.productId = :productId")
     long countByProductId(Long productId);
 
+    List<Stock> findByStatusTrue();
+
 //    private final EntityManager entityManager;
 //    @Autowired
 //    public StockRepository(EntityManager entityManager) {
