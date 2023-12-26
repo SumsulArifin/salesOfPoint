@@ -43,7 +43,6 @@ export class PurchaseService {
             noOfTyres: data.productDetails.noOfTyres,
             numberOfCylinders: data.productDetails.numberOfCylinders,
             yearOfManufacture: data.productDetails.yearOfManufacture,
-            engineCapacity: data.productDetails.engineCapacity,
             mileage: data.productDetails.mileage,
             drive: data.productDetails.drive,
             seatingCapacity: data.productDetails.seatingCapacity,

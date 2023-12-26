@@ -41,6 +41,4 @@ public class Sale {
     @JoinColumn(name = "customer_id")
     private Customer customer;
 
-
-
 }

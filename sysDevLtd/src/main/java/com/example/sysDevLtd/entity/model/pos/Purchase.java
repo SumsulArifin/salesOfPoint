@@ -43,5 +43,4 @@ public class Purchase extends BaseEntity{
     @JoinColumn(name = "stockId")
     private Stock stock;
 
-
 }
