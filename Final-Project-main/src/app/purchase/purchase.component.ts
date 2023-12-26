@@ -42,7 +42,6 @@ export class PurchaseComponent implements OnInit{
       }),
       stock: this.formBuilder.group({
         quantity: ['', Validators.required],
-        supplierId: [''],
       }),
       product: this.formBuilder.group({
         productName: ['', Validators.required],

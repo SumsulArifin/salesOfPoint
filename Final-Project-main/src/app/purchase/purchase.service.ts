@@ -32,7 +32,6 @@ export class PurchaseService {
       warranty: data.purchase.warranty,
       stock: {
         quantity: data.stock.quantity,
-        supplierId: data.stock.quantity,
         product: {
           productName: data.product.productName,
           productType: data.product.productType,
