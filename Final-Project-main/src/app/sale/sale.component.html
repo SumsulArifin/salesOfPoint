@@ -1,0 +1,146 @@
+<app-navbar></app-navbar>
+
+<div class="content-wrapper">
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Advanced Form</h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active">Sale</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="content">
+        <form  [formGroup]= "saleForm" (ngSubmit)="onSubmit()">
+            <!-- Product Section -->
+            <div class="container-fluid">
+                <div class="card card-default">
+                    <div class="card-header">
+                        <h3 class="card-title">Selling Information</h3>
+                        <div class="card-tools">
+                            <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                 <div class="form-group" formGroupName="sale">
+                                    <label>Quantity</label>
+                                    <input type="number" class="form-control" id="quantity" placeholder="Quantity"
+                                        formControlName="quantity">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group" formGroupName="sale">
+                                    <label>Sale Date</label>
+                                    <input type="date" class="form-control" id="saleDate"
+                                        placeholder="Sale Date" formControlName="saleDate">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                 <div class="form-group" formGroupName="sale">
+                                    <label>Price</label>
+                                    <input type="number" class="form-control" id="price" placeholder="Price"
+                                        formControlName="price">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group" formGroupName="sale">
+                                    <label>Discount</label>
+                                    <input type="number" class="form-control" id="discount"
+                                        placeholder="Discount" formControlName="discount">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                 <div class="form-group" formGroupName="sale">
+                                    <label>Total Amount</label>
+                                    <input type="number" class="form-control" id="totalAmount" placeholder="Total Amount"
+                                        formControlName="totalAmount">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group" formGroupName="stock">
+                                    <label>Stock</label>
+                                    <input type="number" class="form-control" id="stock"
+                                        placeholder="Stock" formControlName="stockId">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Details Section -->
+            <div class="container-fluid">
+                <div class="card card-default">
+                    <div class="card-header">
+                        <h3 class="card-title">Customer Details</h3>
+                        <div class="card-tools">
+                            <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group" formGroupName="customer">
+                                    <label>First Name</label>
+                                    <input type="text" class="form-control" id="fname"
+                                        placeholder="First Name" formControlName="firstName">
+                                </div>
+                                <div class="form-group" formGroupName="customer">
+                                    <label>Last Name</label>
+                                    <input type="text" class="form-control" id="lname" placeholder="Last Name"
+                                        formControlName="lastName">
+                                </div>
+                                <div class="form-group" formGroupName="customer">
+                                    <label>Email</label>
+                                    <input type="text" class="form-control" id="email"
+                                        placeholder="Email" formControlName="email">
+                                </div>
+                                <div class="form-group" formGroupName="customer">
+                                    <label>Phone</label>
+                                    <input type="text" class="form-control" id="phone" placeholder="Phone"
+                                        formControlName="phoneNumber">
+                                </div>
+
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-footer d-flex justify-content-center">
+                <button type="submit" class="btn btn-primary w-50 mx-auto">Submit</button>
+            </div>
+        </form>
+        <!-- <pre>{{ purchaseForm.value | json }}</pre> -->
+    </section>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
