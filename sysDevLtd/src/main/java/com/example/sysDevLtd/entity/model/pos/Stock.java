@@ -26,7 +26,7 @@ public class Stock {
     @JoinColumn(name = "product_id")
     private Product product;
 
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "supplierId", nullable = false)
     private Supplier supplier;
 
