@@ -21,7 +21,7 @@ public class StockController {
     public List<Object[]> getStockDetails(@PathVariable Long stockId) {
         return stockService.findProductNameProductIdAndSupplierByStockId(stockId);
     }
-    
+
     @GetMapping("/stocks/count/{productId}")
     public long countStocksByProductId(@PathVariable Long productId) {
         return stockService.countByProductId(productId);
