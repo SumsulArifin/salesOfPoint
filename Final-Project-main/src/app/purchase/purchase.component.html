@@ -229,7 +229,7 @@
                                     <label>Supplier</label>
                                     <select class="form-control" formControlName="supplierId">
                                         <option value="" disabled selected>Choose Supplier</option>
-                                        <option *ngFor="let v of supplierList" [value]="v.supplierId">{{v.supplierName}}</option>
+                                        <option *ngFor="let v of supplierList" [value]="v.supplierId">{{v.supplierName}}- {{v.contactPerson}}</option>
                                     </select>
                                 </div>
                             </div>

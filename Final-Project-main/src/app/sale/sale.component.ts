@@ -62,6 +62,7 @@ export class SaleComponent implements OnInit{
       this.services.saveSale(formData).subscribe(
         response => {
           console.log('Data saved successfully', response);
+          this.router.navigateByUrl("home");
         },
         error => {
           console.error('Error saving data', error);
