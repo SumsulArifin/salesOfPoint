@@ -1,7 +1,19 @@
 export interface ProductDetails {
     productDetailsId: number;
     registrationNo: string;
-    // Add other properties from productDetails here
+  }
+
+  export interface Purchase {
+    purchasesId: number;
+    status: boolean;
+    purchaseDate: string;
+    price: number;
+    payment: string;
+    discount: number;
+    totalAmount: number;
+    deliveryAddress: string;
+    warranty: string;
+    stock: Stock;
   }
   
   export interface Product {
