@@ -22,11 +22,14 @@ public class Stock {
     @Column(name = "status")
     private boolean status = true;
 
+//    @Column(name = "supplierId")
+//    private Long supplierId;
+
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "product_id")
     private Product product;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "supplierId", nullable = false)
     private Supplier supplier;
 

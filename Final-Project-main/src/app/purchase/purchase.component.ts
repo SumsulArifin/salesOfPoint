@@ -65,7 +65,7 @@ export class PurchaseComponent implements OnInit{
         exportedFrom: ['', Validators.required],
         }),
       supplier: this.formBuilder.group({
-        supplierId: [''],
+        supplierId: [],
       }),
     });
   }
