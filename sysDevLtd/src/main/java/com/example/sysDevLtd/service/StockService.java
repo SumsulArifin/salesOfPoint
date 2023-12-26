@@ -1,5 +1,7 @@
 package com.example.sysDevLtd.service;
 
+import com.example.sysDevLtd.entity.model.pos.Purchase;
+import com.example.sysDevLtd.entity.model.pos.Stock;
 import com.example.sysDevLtd.repository.StockRepository;
 import com.example.sysDevLtd.repository.StockRepositoryImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +20,10 @@ public class StockService {
     @Autowired
     public StockService(StockRepositoryImpl stockRepositoryImpl) {
         this.stockRepositoryImpl = stockRepositoryImpl;
+    }
+
+    public List<Stock> getAllStock() {
+        return stockRepository.findAll();
     }
 
     public long countByProductName(String productName) {
