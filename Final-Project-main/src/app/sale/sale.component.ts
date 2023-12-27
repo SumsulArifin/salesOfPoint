@@ -31,9 +31,6 @@ export class SaleComponent implements OnInit{
 
   ngOnInit(): void {
 
-
-
-
     this.services.getStock().subscribe((newPost: Stock[]) => {
       this.stockList = newPost;
       console.log(this.stockList);
