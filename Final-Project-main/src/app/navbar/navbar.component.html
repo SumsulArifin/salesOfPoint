@@ -32,9 +32,10 @@
           </a>
           <div class="navbar-search-block">
             <form class="form-inline">
+
               <div class="input-group input-group-sm">
                 <input class="form-control form-control-navbar" type="search"
-                  placeholder="Search" aria-label="Search">
+                  placeholder="Hello" aria-label="Search">
                 <div class="input-group-append">
                   <button class="btn btn-navbar" type="submit">
                     <i class="fas fa-search"></i>
@@ -185,7 +186,7 @@
         <div class="form-inline">
           <div class="input-group" data-widget="sidebar-search">
             <input class="form-control form-control-sidebar" type="search"
-              placeholder="Search" aria-label="Search">
+              placeholder="Choto" aria-label="Search">
             <div class="input-group-append">
               <button class="btn btn-sidebar">
                 <i class="fas fa-search fa-fw"></i>
@@ -229,6 +230,14 @@
                 <i class="fas fa-money-check-alt"></i>
                 <p>
                   Sales               
+                </p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" (click)="navigateStock()">
+                <i class="fas fa-money-check-alt"></i>
+                <p>
+                  Stock               
                 </p>
               </a>
             </li>
@@ -407,5 +416,7 @@
   
   
   </div>
+
+
 
   <router-outlet></router-outlet>

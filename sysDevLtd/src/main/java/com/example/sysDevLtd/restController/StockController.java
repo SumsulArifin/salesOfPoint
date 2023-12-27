@@ -39,4 +39,9 @@ public class StockController {
         List<Stock> stockList = stockService.getAllStock();
         return new ResponseEntity<>(stockList, HttpStatus.OK);
     }
+
+    @GetMapping("/byProductName/{productName}")
+    public List<Stock> getStocksByProductName(@PathVariable String productName) {
+        return stockService.getStocksByProductName(productName);
+    }
 }

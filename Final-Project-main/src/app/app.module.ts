@@ -11,13 +11,7 @@ import { HomeComponent } from './home/home.component';
 import { PurchaseComponent } from './purchase/purchase.component';
 import { TestComponent } from './test/test.component';
 import { SaleComponent } from './sale/sale.component';
-
-
-
-
-
-
-
+import { StockComponent } from './stock/stock.component';
 
 
 @NgModule({
@@ -30,6 +24,8 @@ import { SaleComponent } from './sale/sale.component';
     PurchaseComponent,
     TestComponent,
     SaleComponent,
+    StockComponent,
+ 
     
 
   ],

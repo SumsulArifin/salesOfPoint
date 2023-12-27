@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { Stock } from './stock.model';
-import { HomeService } from './home.service';
-import { Purchase } from './PurchaseModel';
+import { Stock } from '../stock/stock.model';
+import { HomeService } from '../stock/stock.service';
+import { Purchase } from '../stock/PurchaseModel';
+import { SearchService } from './search.service';
 
 @Component({
   selector: 'app-home',
@@ -13,7 +14,12 @@ export class HomeComponent {
 
   purchaseList: Purchase[]=[];
 
-  constructor(private stockService: HomeService) { }
+  productName: string = '';
+
+  showTable: boolean = false;
+
+  constructor(private stockService: HomeService,
+              private service: SearchService) { }
 
   ngOnInit(): void {
     this.fetchStock();
@@ -29,6 +35,15 @@ export class HomeComponent {
       .subscribe((data: Purchase[]) => {
         this.purchaseList = data;
       });
+  }
+  searchStocksByProductName(): void {
+    if (this.productName.trim() !== '') {
+      this.service.getStocksByProductName(this.productName)
+        .subscribe(stocks => {
+          this.stocks = stocks;
+        });
+    }
+    this.showTable = this.stocks.length > 0;
   }
 
 }

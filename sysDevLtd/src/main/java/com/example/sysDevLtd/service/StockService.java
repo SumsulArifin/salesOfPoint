@@ -25,6 +25,9 @@ public class StockService {
     public List<Stock> getAllStock() {
         return stockRepository.findByStatusTrue();
     }
+    public List<Stock> getStocksByProductName(String productName) {
+        return stockRepository.findByProductProductNameAndStatusIsTrue(productName);
+    }
 
     public long countByProductName(String productName) {
         return stockRepositoryImpl.countByProductName(productName);
