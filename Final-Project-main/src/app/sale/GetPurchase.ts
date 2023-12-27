@@ -1,6 +1,7 @@
+import { Stock } from "../stock/stock.model";
 
 
-import { Stock } from "../home/stock.model";
+
 
 export interface PurchaseModel {
     purchasesId: number;

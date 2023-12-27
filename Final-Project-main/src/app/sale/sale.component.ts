@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { SaleService } from './sale.service';
-import { Stock } from '../home/stock.model';
-import { Purchase } from '../home/PurchaseModel';
+
 import { PurchaseModel } from './GetPurchase';
+import { Stock } from '../stock/stock.model';
 
 
 @Component({

@@ -1,8 +1,9 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Stock } from '../home/stock.model';
+
 import { PurchaseModel } from './GetPurchase';
+import { Stock } from '../stock/stock.model';
 
 
 @Injectable({
