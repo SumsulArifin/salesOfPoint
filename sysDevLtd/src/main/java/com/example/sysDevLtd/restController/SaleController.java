@@ -29,6 +29,11 @@ public class SaleController {
         return new ResponseEntity<>(savedSale, HttpStatus.CREATED);
     }
 
+    @GetMapping("/warranty/{invoiceNumber}")
+    public Long getRemainingWarrantyDays(@PathVariable long invoiceNumber) {
+        return saleService.findWarrantyEndDateByInvoiceNumberAndCalculateRemainingDays(invoiceNumber);
+    }
+
 //    @PostMapping("/save")
 //    public ResponseEntity<MessageResponse> savePurchase(@RequestBody Sale sale) {
 //        if (sale == null) {

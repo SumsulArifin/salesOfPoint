@@ -10,6 +10,8 @@ import com.example.sysDevLtd.repository.StockRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
+
 @Service
 public class SaleService {
 
@@ -35,6 +37,19 @@ public class SaleService {
             }
         }
         return savedSale;
+    }
+
+    public Long findWarrantyEndDateByInvoiceNumberAndCalculateRemainingDays(long invoiceNumber) {
+        Date endDate = saleRepository.findWarrantyEndDateByInvoiceNumber(invoiceNumber);
+
+        if (endDate != null) {
+            Date currentDate = new Date(); // Current date
+            long remainingMilliseconds = endDate.getTime() - currentDate.getTime();
+            long remainingDays = remainingMilliseconds / (1000 * 60 * 60 * 24); // Convert milliseconds to days
+            return remainingDays ;
+        } else {
+            return null;
+        }
     }
 
 

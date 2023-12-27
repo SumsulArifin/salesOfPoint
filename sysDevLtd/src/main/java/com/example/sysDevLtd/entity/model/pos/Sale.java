@@ -18,6 +18,9 @@ public class Sale extends BaseEntity{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long saleId;
 
+
+    private long invoiceNumber;
+
     @Column(name = "quantity")
     private int quantity;
 
@@ -39,5 +42,10 @@ public class Sale extends BaseEntity{
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "customer_id")
     private Customer customer;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "warrantyId")
+    private Warranty warranty;
+
 
 }
