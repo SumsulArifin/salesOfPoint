@@ -74,6 +74,7 @@ export class PurchaseComponent implements OnInit{
     });
   }
 
+
   calculateTotalAmount(discount: number): void {
     const price = this.purchaseForm.get('purchase.price')?.value || 0;
     const calculatedTotalAmount = price - discount;

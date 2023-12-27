@@ -5,7 +5,6 @@ import { RegistrationComponent } from './registration/registration.component';
 import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { PurchaseComponent } from './purchase/purchase.component';
-import { TestComponent } from './test/test.component';
 import { SaleComponent } from './sale/sale.component';
 import { StockComponent } from './stock/stock.component';
 
@@ -24,7 +23,6 @@ const routes: Routes = [
   {path: "home" , component: HomeComponent},
   {path: "purchase" , component: PurchaseComponent},
   {path: "sale" , component: SaleComponent},
-  {path: "test" , component: TestComponent},
   {path: "navbar" , component: NavbarComponent},
   {path: "stock" , component: StockComponent},
   {path: " " , component: LoginComponent},

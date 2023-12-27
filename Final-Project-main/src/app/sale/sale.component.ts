@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { SaleService } from './sale.service';
-
-
 import { PurchaseModel } from './GetPurchase';
 import { Stock } from '../stock/stock.model';
 
@@ -30,6 +28,9 @@ export class SaleComponent implements OnInit{
 
 
   ngOnInit(): void {
+
+
+
 
     this.services.getStock().subscribe((newPost: Stock[]) => {
       this.stockList = newPost;
@@ -63,6 +64,24 @@ export class SaleComponent implements OnInit{
         phoneNumber: ['', Validators.required],
         
 
+      }),
+      warranty: this.formBuilder.group({
+        startDate: ['', Validators.required],
+        endDate: ['', Validators.required],
+        
+        terms1: [''],
+        terms2: [''],
+        terms3: [''],
+        terms4: [''],
+        terms5: [''],
+        terms6: [''],
+        terms7: [''],
+        terms8: [''],
+        terms9: [''],
+        terms10: [''],
+        comment: ['', Validators.required],
+        
+        
       }),
     });
     this.saleForm.get('sale.discount')?.valueChanges.subscribe(discount => {

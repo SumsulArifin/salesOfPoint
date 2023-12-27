@@ -1,7 +1,8 @@
-import { Product } from "../home/stock.model";
+import { Product } from "../stock/stock.model";
+
 
 export interface SaleModel {
-    sale:{
+  sale: {
     saleId: number;
     quantity: number;
     saleDate: Date;
@@ -9,26 +10,43 @@ export interface SaleModel {
     discount: number;
     totalAmount: number;
   };
-  
-    Stock: {
+
+  Stock: {
     stockId: number;
     quantity: number;
     status: boolean;
     supplierId: number;
     product: Product;
   };
-  
-    Customer: {
+
+  Customer: {
     firstName: string;
     lastName: string;
     email: string;
     phoneNumber: string;
   };
-  
-    Product :{
-    
+
+  Warranty: {
+    startDate: string;
+    endDate: string;
+    terms1: string;
+    terms2: string;
+    terms3: string;
+    terms4: string;
+    terms5: string;
+    terms6: string;
+    terms7: string;
+    terms8: string;
+    terms9: string;
+    terms10: string;
+    comment: string;
   };
-  
-   Supplier: {
-    
-  };}
+
+  Product: {
+
+  };
+
+  Supplier: {
+
+  };
+}
