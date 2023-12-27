@@ -68,6 +68,22 @@ export class PurchaseComponent implements OnInit{
         supplierId: [],
       }),
     });
+
+    this.purchaseForm.get('purchase.discount')?.valueChanges.subscribe(discount => {
+      this.calculateTotalAmount(discount);
+    });
+  }
+
+  calculateTotalAmount(discount: number): void {
+    const price = this.purchaseForm.get('purchase.price')?.value || 0;
+    const calculatedTotalAmount = price - discount;
+
+    // Set the calculated total amount in the form
+    this.purchaseForm.patchValue({
+      purchase: {
+        totalAmount: calculatedTotalAmount,
+      },
+    });
   }
 
     

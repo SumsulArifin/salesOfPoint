@@ -9,6 +9,7 @@ import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { HomeComponent } from './home/home.component';
 import { PurchaseComponent } from './purchase/purchase.component';
+import { TestComponent } from './test/test.component';
 import { SaleComponent } from './sale/sale.component';
 import { StockComponent } from './stock/stock.component';
 
@@ -21,6 +22,7 @@ import { StockComponent } from './stock/stock.component';
     RegistrationComponent,
     HomeComponent,
     PurchaseComponent,
+    TestComponent,
     SaleComponent,
     StockComponent,
  
