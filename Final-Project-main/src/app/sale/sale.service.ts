@@ -1,6 +1,8 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Stock } from '../home/stock.model';
+import { PurchaseModel } from './GetPurchase';
 
 
 @Injectable({
@@ -11,6 +13,10 @@ export class SaleService {
   
   
   private url = 'http://localhost:8080/sale';
+
+  private urls = 'http://localhost:8080/stock';
+
+  private urlGetPrice = 'http://localhost:8080';
 
  
 
@@ -42,5 +48,13 @@ export class SaleService {
     return this.httpService.post<any>(`${this.url}/save`, requestBody, { headers });
   }
 
-  
+  getStock() : Observable<Stock[]> {
+    const task = this.httpService.get<Stock[]>(this.urls + '/getAllStock');
+    return task;
+  }
+
+  find(stockId: number): Observable<PurchaseModel[]> {
+    return this.httpService.get<PurchaseModel[]>(`${this.urlGetPrice}/purchase/${stockId}`);
+  }
+
 }

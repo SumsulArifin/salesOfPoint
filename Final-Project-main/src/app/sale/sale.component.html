@@ -17,7 +17,7 @@
         </div>
     </section>
     <section class="content">
-        <form  [formGroup]= "saleForm" (ngSubmit)="onSubmit()">
+        <form [formGroup]="saleForm" (ngSubmit)="onSubmit()">
             <!-- Product Section -->
             <div class="container-fluid">
                 <div class="card card-default">
@@ -31,52 +31,63 @@
                     </div>
                     <div class="card-body">
                         <div class="row">
+
                             <div class="col-md-6">
-                                 <div class="form-group" formGroupName="sale">
+                                <div class="form-group" formGroupName="stock">
+                                    <label>Product Name</label>
+                                    <select class="form-control" formControlName="stockId" (change)="onProductSelectionChange()">
+                                        <option value="" disabled selected>Choose Product</option>
+                                        <option *ngFor="let v of stockList" [value]="v.stockId">{{v.product.productName}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group" formGroupName="sale">
                                     <label>Quantity</label>
                                     <input type="number" class="form-control" id="quantity" placeholder="Quantity"
                                         formControlName="quantity">
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <div class="form-group" formGroupName="sale">
-                                    <label>Sale Date</label>
-                                    <input type="date" class="form-control" id="saleDate"
-                                        placeholder="Sale Date" formControlName="saleDate">
-                                </div>
-                            </div>
+                            
                         </div>
                         <div class="row">
                             <div class="col-md-6">
-                                 <div class="form-group" formGroupName="sale">
+                                <div class="form-group" formGroupName="sale">
+                                    <label>Sale Date</label>
+                                    <input type="date" class="form-control" id="saleDate" placeholder="Sale Date"
+                                        formControlName="saleDate">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group" formGroupName="sale">
                                     <label>Price</label>
                                     <input type="number" class="form-control" id="price" placeholder="Price"
                                         formControlName="price">
                                 </div>
                             </div>
+                           
+                        </div>
+                        <div class="row">
+                            
+
                             <div class="col-md-6">
                                 <div class="form-group" formGroupName="sale">
                                     <label>Discount</label>
-                                    <input type="number" class="form-control" id="discount"
-                                        placeholder="Discount" formControlName="discount">
+                                    <input type="number" class="form-control" id="discount" placeholder="Discount"
+                                        formControlName="discount">
                                 </div>
                             </div>
-                        </div>
-                        <div class="row">
                             <div class="col-md-6">
-                                 <div class="form-group" formGroupName="sale">
+                                <div class="form-group" formGroupName="sale">
                                     <label>Total Amount</label>
-                                    <input type="number" class="form-control" id="totalAmount" placeholder="Total Amount"
-                                        formControlName="totalAmount">
+                                    <input type="number" class="form-control" id="totalAmount"
+                                        placeholder="Total Amount" formControlName="totalAmount">
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <div class="form-group" formGroupName="stock">
-                                    <label>Stock</label>
-                                    <input type="number" class="form-control" id="stock"
-                                        placeholder="Stock" formControlName="stockId">
-                                </div>
-                            </div>
+
+
+
+                            
                         </div>
                     </div>
                 </div>
@@ -98,31 +109,39 @@
                             <div class="col-md-6">
                                 <div class="form-group" formGroupName="customer">
                                     <label>First Name</label>
-                                    <input type="text" class="form-control" id="fname"
-                                        placeholder="First Name" formControlName="firstName">
+                                    <input type="text" class="form-control" id="fname" placeholder="First Name"
+                                        formControlName="firstName">
                                 </div>
+                            </div>
+                            <div class="col-md-6">
                                 <div class="form-group" formGroupName="customer">
                                     <label>Last Name</label>
                                     <input type="text" class="form-control" id="lname" placeholder="Last Name"
                                         formControlName="lastName">
                                 </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
                                 <div class="form-group" formGroupName="customer">
                                     <label>Email</label>
-                                    <input type="text" class="form-control" id="email"
-                                        placeholder="Email" formControlName="email">
+                                    <input type="text" class="form-control" id="email" placeholder="Email"
+                                        formControlName="email">
                                 </div>
+                            </div>
+                            <div class="col-md-6">
                                 <div class="form-group" formGroupName="customer">
                                     <label>Phone</label>
                                     <input type="text" class="form-control" id="phone" placeholder="Phone"
                                         formControlName="phoneNumber">
                                 </div>
-
                             </div>
-                            
                         </div>
+
                     </div>
                 </div>
             </div>
+
 
             <div class="card-footer d-flex justify-content-center">
                 <button type="submit" class="btn btn-primary w-50 mx-auto">Submit</button>
@@ -131,16 +150,3 @@
         <!-- <pre>{{ purchaseForm.value | json }}</pre> -->
     </section>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-

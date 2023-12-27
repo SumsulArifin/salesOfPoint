@@ -50,4 +50,10 @@ public class PurchaseController {
     public void deletePurchase(@PathVariable("id") Long id) {
         this.purchaseService.purchaseDelete(id);
     }
+
+
+    @GetMapping("/{stockId}")
+    public List<Purchase> getStockById(@PathVariable Long stockId) {
+        return purchaseService.findStock(stockId);
+    }
 }

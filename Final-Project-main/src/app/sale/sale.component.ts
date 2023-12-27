@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { SaleService } from './sale.service';
+import { Stock } from '../home/stock.model';
+import { Purchase } from '../home/PurchaseModel';
+import { PurchaseModel } from './GetPurchase';
 
 
 @Component({
@@ -10,6 +13,12 @@ import { SaleService } from './sale.service';
   styleUrls: ['./sale.component.css']
 })
 export class SaleComponent implements OnInit{
+
+  stockid!: number;
+
+  basePrice!: PurchaseModel[];
+
+  stockList!: Stock[];
 
   saleForm!: FormGroup;
 
@@ -20,6 +29,16 @@ export class SaleComponent implements OnInit{
 
 
   ngOnInit(): void {
+
+
+
+
+    this.services.getStock().subscribe((newPost: Stock[]) => {
+      this.stockList = newPost;
+      console.log(this.stockList);
+      
+    });
+
     this.createForm();
   }
 
@@ -47,6 +66,41 @@ export class SaleComponent implements OnInit{
         
 
       }),
+    });
+    this.saleForm.get('sale.discount')?.valueChanges.subscribe(discount => {
+      this.calculateTotalAmount(discount);
+    });
+  }
+
+  calculateTotalAmount(discount: number): void {
+    const price = this.saleForm.get('sale.price')?.value || 0;
+    const calculatedTotalAmount = price - discount;
+
+    // Set the calculated total amount in the form
+    this.saleForm.patchValue({
+      sale: {
+        totalAmount: calculatedTotalAmount,
+      },
+    });
+  }
+
+  onProductSelectionChange(): void {
+    const selectedStockId = this.saleForm.get('stock.stockId')?.value;
+
+    // Fetch purchase details based on the selected stockId
+    this.services.find(selectedStockId).subscribe((task: PurchaseModel[]) => {
+      this.basePrice = task;
+
+      // Assuming you have a single purchase for a stockId
+      if (this.basePrice.length > 0) {
+        // Update the price field in the form with the fetched price
+        this.saleForm.patchValue({
+          sale: {
+            price: this.basePrice[0].price,
+          },
+        });
+        this.calculateTotalAmount(this.saleForm.get('sale.discount')?.value);
+      }
     });
   }
 

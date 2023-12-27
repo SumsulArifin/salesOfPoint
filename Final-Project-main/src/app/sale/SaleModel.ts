@@ -1,3 +1,5 @@
+import { Product } from "../home/stock.model";
+
 export interface SaleModel {
     sale:{
     saleId: number;
@@ -12,6 +14,8 @@ export interface SaleModel {
     stockId: number;
     quantity: number;
     status: boolean;
+    supplierId: number;
+    product: Product;
   };
   
     Customer: {

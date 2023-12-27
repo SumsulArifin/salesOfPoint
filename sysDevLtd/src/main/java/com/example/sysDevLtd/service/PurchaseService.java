@@ -35,4 +35,8 @@ public class PurchaseService {
     public void purchaseDelete(Long id) {
         purchaseRepository.deleteById(id);
     }
+
+    public List<Purchase> findStock(Long stockId) {
+        return purchaseRepository.findByStockId(stockId);
+    }
 }
