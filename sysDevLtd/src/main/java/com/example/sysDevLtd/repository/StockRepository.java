@@ -33,6 +33,12 @@ public interface StockRepository extends JpaRepository<Stock,Long> {
 
     List<Stock> findByStatusTrue();
 
+//    List<Stock> findByProductProductName(String productName);
+
+    List<Stock> findByProductProductNameAndStatusIsTrue(String productName);
+
+
+
 //    private final EntityManager entityManager;
 //    @Autowired
 //    public StockRepository(EntityManager entityManager) {

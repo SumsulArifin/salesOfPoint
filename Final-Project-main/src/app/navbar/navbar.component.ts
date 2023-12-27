@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserAuthService } from '../authService/user-auth.service';
 import { UserStoreService } from '../authService/user-store.service';
+import { SearchService } from '../home/search.service';
+import { Stock } from '../stock/stock.model';
 
 @Component({
   selector: 'app-navbar',
@@ -13,11 +15,14 @@ export class NavbarComponent implements OnInit{
   public role!:string;
 
 
+
+
   constructor(private router: Router,
     
     private userAuthService: UserAuthService,
     private auth:UserAuthService,
     private userStore: UserStoreService,
+    private service: SearchService
    ) {}
 
 
@@ -48,7 +53,10 @@ export class NavbarComponent implements OnInit{
     this.router.navigateByUrl("sale");
    
   }
-
+  navigateStock() {
+    this.router.navigateByUrl("stock");
+   
+  }
 
   
 
@@ -70,7 +78,7 @@ export class NavbarComponent implements OnInit{
     this.userAuthService.clear();
     this.router.navigateByUrl("/login");
   }
-
+ 
   
 
 }

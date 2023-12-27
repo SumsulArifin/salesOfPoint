@@ -29,307 +29,83 @@
     </div>
     <!-- /.content-header -->
 
-    <!-- Main content -->
-    <section class="content">
-      <div class="container-fluid">
-        <!-- Info boxes -->
-        
-        <!-- /.row -->
+    <!-- <div>
+      <input type="text" [(ngModel)]="productName" placeholder="Enter Product Name" />
+      <button (click)="searchStocksByProductName()">Search</button>
+    </div> -->
+    <!-- <div class="container mt-4">
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" [(ngModel)]="productName" placeholder="Enter Product Name">
+        <div class="input-group-append">
+          <button class="btn btn-primary" (click)="searchStocksByProductName()">Search</button>
+        </div>
+      </div>
+    </div>
 
-        <div class="row">
-          <div class="col-md-12">
-            <div class="card">
-              <div class="card-header">
-                <h5 class="card-title">Available Product</h5>
+    <div *ngIf="stocks.length > 0" class="container mt-4">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Product Name</th>
+            <th>Quantity</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let stock of stocks">
+            <td>{{ stock.product.productName }}</td>
+            <td>{{ stock.quantity }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div> -->
 
-
-
-
-                <div class="card-tools">
-                  <button type="button" class="btn btn-tool" data-card-widget="collapse">
-                    <i class="fas fa-minus"></i>
-                  </button>
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-tool dropdown-toggle" data-toggle="dropdown">
-                      <i class="fas fa-wrench"></i>
-                    </button>
-                    <div class="dropdown-menu dropdown-menu-right" role="menu">
-                      <a href="#" class="dropdown-item">Action</a>
-                      <a href="#" class="dropdown-item">Another action</a>
-                      <a href="#" class="dropdown-item">Something else here</a>
-                      <a class="dropdown-divider"></a>
-                      <a href="#" class="dropdown-item">Separated link</a>
-                    </div>
-                  </div>
-                  <button type="button" class="btn btn-tool" data-card-widget="remove">
-                    <i class="fas fa-times"></i>
-                  </button>
-                </div>
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body">
-                <div class="row">
-                  <div class="col-md-12">
-
-                    <div class="table-responsive">
-
-
-                      <table class="table m-0">
-                        <thead>
-                        <tr>
-                          <th>Stock ID</th>
-                          <th>Product Name</th>
-                          <th>Supplier Name</th>
-                          <th>Quantity </th>
-
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr  *ngFor="let stock of stocks">
-                          <td>{{stock.stockId}}</td>
-                          <td>{{stock.product.productName}}</td>
-                          <td>{{stock.supplier.supplierName}}</td>
-                          <td>{{stock.quantity}}</td>
-                          
-
-                          
-                        </tr>
-                   
-              
-
-
-
-
-                        </tbody>
-                      </table>
+    <div class="container mt-4">
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" [(ngModel)]="productName" placeholder="Enter Product Name">
+        <div class="input-group-append">
+          <button class="btn btn-primary" (click)="searchStocksByProductName()">Search</button>
+        </div>
+      </div>
+    </div>
     
-                      
+    <div *ngIf="showTable" class="container mt-4">
+      <table class="table">
+        <!-- Table headers remain the same -->
+        <thead>
+          <tr>
+            <th>Product Name</th>
+            <th>RegistrationNo</th>
+            <th>Supplaier Name</th>
+            <th>Supplaier Number</th>
+            <th>Quantity</th>
+            <!-- Add more table headers for other stock details if needed -->
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let stock of stocks">
+            <td>{{ stock.product.productName }}</td>
+            <td>{{ stock.product.productDetails.registrationNo }}</td>
+            <td>{{ stock.supplier.supplierName }}</td>
+            <td>{{ stock.supplier.phoneNumber }}</td>
+            <td>{{ stock.quantity }}</td>
+            <!-- Display other stock details within additional <td> elements -->
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    
+    
+    <!-- <div *ngIf="stocks.length > 0">
+      <ul>
+        <li *ngFor="let stock of stocks">
+          <h3>{{ stock.product.productName }}</h3>
+          <p>Quantity: {{ stock.quantity }}</p>
+        </li>
+      </ul>
+    </div> -->
+    
+    <!-- Main content -->
 
-
-
-                      </div>
-
-
-                    <!-- <p class="text-center">
-                      <strong>Sales: 1 Jan, 2023 - 30 Jul, 2023</strong>
-                    </p> -->
-
-                    
-                    <!-- /.chart-responsive -->
-                  </div>
-                  <!-- /.col -->
-                 
-                  <!-- /.col -->
-                </div>
-                <!-- /.row -->
-              </div>
-              <!-- ./card-body -->
-              <div class="card-footer">
-                <div class="row">
-                  <div class="col-sm-3 col-6">
-                    <div class="description-block border-right">
-                      <span class="description-percentage text-danger"><h5 class="description-header">7</h5></span>
-
-                      <span class="description-text">Employee Absence</span><br>
-                      <span class="text-secondary"><a href="pages/examples/invoice.html">View Details</a></span>
-                    </div>
-                    <!-- /.description-block -->
-                  </div>
-                  <!-- /.col -->
-                  <div class="col-sm-3 col-6">
-                    <div class="description-block border-right">
-                      <span class="description-percentage text-warning"><h5 class="description-header">2</h5></span>
-
-                      <span class="description-text">Pending Leave Application</span><br>
-                      <span class="text-secondary"><a href="pages/examples/invoice.html">View Details</a></span>
-                    </div>
-                    <!-- /.description-block -->
-                  </div>
-                  <!-- /.col -->
-                  <div class="col-sm-3 col-6">
-                    <div class="description-block border-right">
-                      <span class="description-percentage text-success"><h5 class="description-header">5</h5></span>
-
-                      <span class="description-text">Upcoming Project</span><br>
-                      <span class="text-secondary"><a href="pages/examples/invoice.html">View Details</a></span>
-                    </div>
-                    <!-- /.description-block -->
-                  </div>
-                  <!-- /.col -->
-                  <div class="col-sm-3 col-6">
-                    <div class="description-block">
-                      <span class="description-percentage text-danger"> <h5 class="description-header">3</h5></span>
-
-                      <span class="description-text">Loan Application</span><br>
-                      <span class="text-secondary"><a href="pages/examples/invoice.html">View Details</a></span>
-                    </div>
-                    <!-- /.description-block -->
-                  </div>
-                </div>
-                <!-- /.row -->
-              </div>
-              <!-- /.card-footer -->
-            </div>
-            <!-- /.card -->
-          </div>
-          <!-- /.col -->
-        </div>
-        <!-- /.row -->
-
-        <!-- Main row -->
-        <div class="row">
-          <!-- Left col -->
-          <div class="col-md-12">
-            <!-- MAP & BOX PANE -->
-            <div class="card">
-
-              <!-- /.card-header -->
-
-              <!-- /.card-body -->
-            </div>
-            <!-- /.card -->
-            <div class="row">
-              <div class="col-md-6">
-                <!-- DIRECT CHAT -->
-                <div class="card direct-chat direct-chat-warning">
-
-                  <!-- /.card-header -->
-                  <div class="card-body">
-                    <!-- Conversations are loaded here -->
-
-                    <!--/.direct-chat-messages-->
-
-                    <!-- Contacts are loaded here -->
-                    <div class="direct-chat-contacts">
-                      <ul class="contacts-list">
-                        <li>
-                          <a href="#">
-                            <img class="contacts-list-img" src="" alt="User Avatar">
-
-
-                            <!-- /.contacts-list-info -->
-                          </a>
-                        </li>
-                        <!-- End Contact Item -->
-
-
-
-                            <!-- /.contacts-list-info -->
-
-                        <!-- End Contact Item -->
-
-                        <!-- End Contact Item -->
-
-                        <!-- End Contact Item -->
-
-                        <!-- End Contact Item -->
-
-                        <!-- End Contact Item -->
-                      </ul>
-                      <!-- /.contacts-list -->
-                    </div>
-                    <!-- /.direct-chat-pane -->
-                  </div>
-                  <!-- /.card-body -->
-
-                  <!-- /.card-footer-->
-                </div>
-                <!--/.direct-chat -->
-              </div>
-              <!-- /.col -->
-
-              <div class="col-md-6">
-                <!-- USERS LIST -->
-
-                <!--/.card -->
-              </div>
-              <!-- /.col -->
-            </div>
-            <!-- /.row -->
-
-            <!-- TABLE: LATEST ORDERS -->
-            <div class="card">
-              <div class="card-header border-transparent">
-                <h3 class="card-title">Purchase List</h3>
-
-                <div class="card-tools">
-                  <button type="button" class="btn btn-tool" data-card-widget="collapse">
-                    <i class="fas fa-minus"></i>
-                  </button>
-                  <button type="button" class="btn btn-tool" data-card-widget="remove">
-                    <i class="fas fa-times"></i>
-                  </button>
-                </div>
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body p-0">
-                <div class="table-responsive">
-                  <table class="table m-0">
-                    <thead>
-                    <tr>
-                      <th>Purchase ID</th>
-                      <th>Purchase Date</th>
-                      <th>Product Name</th>
-                      <th>Supplier</th>
-                      <th>Price</th>
-                      <th>Status</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    
-                      <!-- <tr *ngFor="let pur of purchaseList">
-                        <td>{{stockk.stockId}}</td>
-                        <td>{{stockk.purchase.purchaseDate}}</td>
-                        <td>{{stockk.product.productName}}</td>
-                        <td>{{stockk.supplier.supplierName}}</td>
-                        <td>{{stockk.quantity}}</td>
-                      </tr> -->
-                        
-
-                        
-                      
-
-                    
-
-                    
-
-                    
-                      <!-- <td><a href="pages/examples/invoice.html">123</a></td>
-                      <td>Management</td>
-                      <td>Rony</td>
-                      <td>For Refreshment</td>
-
-                      <td>
-                        <div class="sparkbar" data-color="#00a65a" data-height="20">25/03/2023</div>
-                      </td>
-                      <td><span class="badge badge-danger">Cancelled</span></td> -->
-
-
-
-
-
-
-                    </tbody>
-                  </table>
-                </div>
-                <!-- /.table-responsive -->
-              </div>
-              <!-- /.card-body -->
-              <div class="card-footer clearfix">
-                <a href="javascript:void(0)" class="btn btn-sm btn-info float-left">Manage Leave</a>
-                <!-- <a href="javascript:void(0)" class="btn btn-sm btn-secondary float-right">View All Orders</a> -->
-              </div>
-              <!-- /.card-footer -->
-            </div>
-            <!-- /.card -->
-          </div>
-          <!-- /.col -->
-
-
-          <!-- /.col -->
-        </div>
-        <!-- /.row -->
-      </div><!--/. container-fluid -->
-    </section>
     <!-- /.content -->
   </div>
