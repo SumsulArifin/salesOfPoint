@@ -1,16 +1,15 @@
 package com.example.sysDevLtd.restController;
 
-import com.example.sysDevLtd.entity.model.pos.Customer;
-import com.example.sysDevLtd.entity.model.pos.Purchase;
 import com.example.sysDevLtd.entity.model.pos.Sale;
+import com.example.sysDevLtd.entity.request.WarrantyDetailsDTO;
 import com.example.sysDevLtd.repository.CustomerRepository;
 import com.example.sysDevLtd.service.SaleService;
-import com.example.sysDevLtd.utils.Message;
-import com.example.sysDevLtd.utils.MessageResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/sale")
@@ -27,12 +26,32 @@ public class SaleController {
     public ResponseEntity<Sale> saveSaleAndUpdateStock(@RequestBody Sale sale) {
         Sale savedSale = saleService.saveSaleAndUpdateStock(sale);
         return new ResponseEntity<>(savedSale, HttpStatus.CREATED);
+
     }
 
     @GetMapping("/warranty/{invoiceNumber}")
-    public Long getRemainingWarrantyDays(@PathVariable long invoiceNumber) {
-        return saleService.findWarrantyEndDateByInvoiceNumberAndCalculateRemainingDays(invoiceNumber);
+    public List<WarrantyDetailsDTO> getWarrantyDetailsByInvoiceNumber(@PathVariable long invoiceNumber) {
+        return saleService.findWarrantyDetailsByInvoiceNumber(invoiceNumber);
     }
+//    @GetMapping("/warranty/{invoiceNumber}")
+//    public void getWarrantyDetailsByInvoiceNumber(@PathVariable long invoiceNumber) {
+//        saleService.findWarrantyDetailsByInvoiceNumber(invoiceNumber);
+//    }
+
+//    @GetMapping("/warranty/{invoiceNumber}")
+//    public ResponseEntity<SaleInfoDTO> getSaleInfoByInvoiceNumber(@PathVariable long invoiceNumber) {
+//        SaleInfoDTO saleInfo = saleService.getSaleInfoByInvoiceNumber(invoiceNumber);
+//        if (saleInfo != null) {
+//            return new ResponseEntity<>(saleInfo, HttpStatus.OK);
+//        } else {
+//            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+//        }
+//    }
+
+//    @GetMapping("/warranty/{invoiceNumber}")
+//    public Long getRemainingWarrantyDays(@PathVariable long invoiceNumber) {
+//        return saleService.findWarrantyEndDateByInvoiceNumberAndCalculateRemainingDays(invoiceNumber);
+//    }
 
 //    @PostMapping("/save")
 //    public ResponseEntity<MessageResponse> savePurchase(@RequestBody Sale sale) {
