@@ -1,3 +1,5 @@
+import { Stock } from "./stock.model";
+
 export interface Purchase {
     purchasesId: number;
     status: boolean;
@@ -8,4 +10,5 @@ export interface Purchase {
     totalAmount: number;
     deliveryAddress: string;
     warranty: string;
+    stock: Stock;
   }

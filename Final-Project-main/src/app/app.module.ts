@@ -11,6 +11,7 @@ import { HomeComponent } from './home/home.component';
 import { PurchaseComponent } from './purchase/purchase.component';
 import { SaleComponent } from './sale/sale.component';
 import { StockComponent } from './stock/stock.component';
+import { PurchaseListComponent } from './purchase-list/purchase-list.component';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { StockComponent } from './stock/stock.component';
     PurchaseComponent,
     SaleComponent,
     StockComponent,
+    PurchaseListComponent,
  
     
 

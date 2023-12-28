@@ -10,6 +10,7 @@ import { Purchase } from './PurchaseModel';
 export class HomeService {
 
   private apiUrl = 'http://localhost:8080/stock';
+  private apiPurUrl = 'http://localhost:8080/purchase';
 
   constructor(private http: HttpClient) { }
 
@@ -18,6 +19,6 @@ export class HomeService {
   }
 
   getAllPurchase(): Observable<Purchase[]> {
-    return this.http.get<Purchase[]>(`${this.apiUrl}/getAllStock`);
+    return this.http.get<Purchase[]>(`${this.apiPurUrl}/getAllPurchase`);
   }
 }

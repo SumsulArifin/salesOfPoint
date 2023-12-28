@@ -64,6 +64,12 @@ export class NavbarComponent implements OnInit{
     this.router.navigateByUrl("home");
    
   }
+  navigatepurchaseList() {
+    this.router.navigateByUrl("purchaseList");
+   
+  }
+
+  
 
   navigateTest() {
     this.router.navigateByUrl("test");
