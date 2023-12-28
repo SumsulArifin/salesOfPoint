@@ -69,6 +69,18 @@ export class NavbarComponent implements OnInit{
    
   }
 
+  navigateWarranty() {
+    this.router.navigateByUrl("checkService");
+   
+  }
+
+
+  
+
+
+
+
+
   
 
   navigateTest() {
