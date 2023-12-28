@@ -1,16 +1,17 @@
 package com.example.sysDevLtd.service;
 
-import com.example.sysDevLtd.entity.model.pos.Customer;
-import com.example.sysDevLtd.entity.model.pos.ProductDetails;
 import com.example.sysDevLtd.entity.model.pos.Sale;
 import com.example.sysDevLtd.entity.model.pos.Stock;
-import com.example.sysDevLtd.repository.CustomerRepository;
+import com.example.sysDevLtd.entity.request.WarrantyDetailsDTO;
 import com.example.sysDevLtd.repository.SaleRepository;
+
 import com.example.sysDevLtd.repository.StockRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Service
 public class SaleService {
@@ -18,6 +19,9 @@ public class SaleService {
 
     private final SaleRepository saleRepository;
     private final StockRepository stockRepository;
+
+//    @Autowired
+//    SaleRepositoryW saleRepositoryW;
 
     @Autowired
     public SaleService(SaleRepository saleRepository, StockRepository stockRepository) {
@@ -39,18 +43,61 @@ public class SaleService {
         return savedSale;
     }
 
-    public Long findWarrantyEndDateByInvoiceNumberAndCalculateRemainingDays(long invoiceNumber) {
-        Date endDate = saleRepository.findWarrantyEndDateByInvoiceNumber(invoiceNumber);
+    public List<WarrantyDetailsDTO> findWarrantyDetailsByInvoiceNumber(long invoiceNumber) {
+        List<Object[]> result = saleRepository.findWarrantyEndDateByInvoiceNumber(invoiceNumber);
 
-        if (endDate != null) {
-            Date currentDate = new Date(); // Current date
-            long remainingMilliseconds = endDate.getTime() - currentDate.getTime();
-            long remainingDays = remainingMilliseconds / (1000 * 60 * 60 * 24); // Convert milliseconds to days
-            return remainingDays ;
-        } else {
-            return null;
+        List<WarrantyDetailsDTO> warrantyDetailsList = new ArrayList<>();
+
+        for (Object[] objects : result) {
+            Date endDate = (Date) objects[0];
+            String firstName = (String) objects[1];
+            String productName = (String) objects[2];
+            Date saleDate =(Date)  objects[3];
+
+            // Calculate days left
+            long daysLeft = endDate.getTime() - new Date().getTime();
+            daysLeft = Math.max(daysLeft, 0) / (1000 * 60 * 60 * 24); // Convert milliseconds to days
+
+            WarrantyDetailsDTO warrantyDetails = new WarrantyDetailsDTO(firstName, productName, saleDate, daysLeft);
+            warrantyDetailsList.add(warrantyDetails);
         }
+
+        return warrantyDetailsList;
     }
+
+//    public void findWarrantyDetailsByInvoiceNumber(long invoiceNumber) {
+//        List<Object[]> result = saleRepository.findWarrantyEndDateByInvoiceNumber(invoiceNumber);
+//
+//        for (Object[] objects : result) {
+//            Date endDate = (Date) objects[0];
+//            String customerFirstName = (String) objects[1];
+//            String productName = (String) objects[2];
+//
+//            // Calculate days left
+//            long daysLeft = endDate.getTime() - new Date().getTime();
+//            daysLeft = Math.max(daysLeft, 0) / (1000 * 60 * 60 * 24); // Convert milliseconds to days
+//
+//            System.out.println("Customer First Name: " + customerFirstName);
+//            System.out.println("Product Name: " + productName);
+//            System.out.println("Days Left for Warranty: " + daysLeft);
+//        }
+//    }
+
+//    public SaleInfoDTO getSaleInfoByInvoiceNumber(long invoiceNumber) {
+//        return saleRepositoryW.getSaleInfoByInvoiceNumber(invoiceNumber);
+//    }
+//    public Long findWarrantyEndDateByInvoiceNumberAndCalculateRemainingDays(long invoiceNumber) {
+//        Date endDate = saleRepository.findWarrantyEndDateByInvoiceNumber(invoiceNumber);
+//
+//        if (endDate != null) {
+//            Date currentDate = new Date(); // Current date
+//            long remainingMilliseconds = endDate.getTime() - currentDate.getTime();
+//            long remainingDays = remainingMilliseconds / (1000 * 60 * 60 * 24); // Convert milliseconds to days
+//            return remainingDays ;
+//        } else {
+//            return null;
+//        }
+//    }
 
 
 //    @Autowired
