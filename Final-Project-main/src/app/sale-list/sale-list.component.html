@@ -30,11 +30,12 @@
                                             <thead>
                                                 <tr>
                                                     <th>Invoice Number</th>
-                                                    <th>Customar Name </th>
-                                                    <th>Product Name</th>
+                                                    <th>Customar </th>
+                                                    <th>Product</th>
                                                     <th>Price</th>
                                                     <th>Sale Date </th>
                                                     <th>Warrant End Date </th>
+                                                    <th>Action</th>
 
                                                 </tr>
                                             </thead>
@@ -46,7 +47,8 @@
                                                     <td>{{sal.price}}</td>
                                                     <td>{{sal.saleDate}}</td>
                                                     <td>{{sal.warranty.endDate}}</td>
-
+                                                    <td><a href="" [routerLink]="['/generateInvoice/', sal.saleId, 'edit']"><span class="badge badge-success">Generate Invoice</span></a>
+                                                    </td>
                                                 </tr>
                                             </tbody>
                                         </table>

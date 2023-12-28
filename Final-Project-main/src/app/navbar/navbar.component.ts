@@ -78,6 +78,15 @@ export class NavbarComponent implements OnInit{
    
   }
 
+  navigateInvoice() {
+    this.router.navigateByUrl("invoice");
+   
+  }
+
+
+
+  
+
 
   
 

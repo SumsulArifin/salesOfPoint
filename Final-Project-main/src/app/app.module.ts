@@ -15,6 +15,9 @@ import { PurchaseListComponent } from './purchase-list/purchase-list.component';
 import { CheckserviceComponent } from './checkservice/checkservice.component';
 import { SaleListComponent } from './sale-list/sale-list.component';
 
+import { InvoiceComponent } from './invoice/invoice.component';
+
+
 
 @NgModule({
   declarations: [
@@ -29,6 +32,8 @@ import { SaleListComponent } from './sale-list/sale-list.component';
     PurchaseListComponent,
     CheckserviceComponent,
     SaleListComponent,
+    InvoiceComponent,
+
  
     
 
