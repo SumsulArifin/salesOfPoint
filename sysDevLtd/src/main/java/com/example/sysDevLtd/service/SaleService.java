@@ -1,5 +1,6 @@
 package com.example.sysDevLtd.service;
 
+import com.example.sysDevLtd.entity.model.pos.Purchase;
 import com.example.sysDevLtd.entity.model.pos.Sale;
 import com.example.sysDevLtd.entity.model.pos.Stock;
 import com.example.sysDevLtd.entity.request.WarrantyDetailsDTO;
@@ -42,6 +43,11 @@ public class SaleService {
         }
         return savedSale;
     }
+
+    public List<Sale> getAllSale() {
+        return saleRepository.findAll();
+    }
+
 
     public List<WarrantyDetailsDTO> findWarrantyDetailsByInvoiceNumber(long invoiceNumber) {
         List<Object[]> result = saleRepository.findWarrantyEndDateByInvoiceNumber(invoiceNumber);

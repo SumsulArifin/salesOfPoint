@@ -1,5 +1,6 @@
 package com.example.sysDevLtd.restController;
 
+import com.example.sysDevLtd.entity.model.pos.Purchase;
 import com.example.sysDevLtd.entity.model.pos.Sale;
 import com.example.sysDevLtd.entity.request.WarrantyDetailsDTO;
 import com.example.sysDevLtd.repository.CustomerRepository;
@@ -33,6 +34,13 @@ public class SaleController {
     public List<WarrantyDetailsDTO> getWarrantyDetailsByInvoiceNumber(@PathVariable long invoiceNumber) {
         return saleService.findWarrantyDetailsByInvoiceNumber(invoiceNumber);
     }
+
+    @GetMapping("/getAllSale")
+    public ResponseEntity<List<Sale>> getAllSale() {
+        List<Sale> saleList = saleService.getAllSale();
+        return new ResponseEntity<>(saleList, HttpStatus.OK);
+    }
+
 //    @GetMapping("/warranty/{invoiceNumber}")
 //    public void getWarrantyDetailsByInvoiceNumber(@PathVariable long invoiceNumber) {
 //        saleService.findWarrantyDetailsByInvoiceNumber(invoiceNumber);
