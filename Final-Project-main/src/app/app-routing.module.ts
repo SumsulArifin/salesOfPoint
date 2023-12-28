@@ -9,6 +9,7 @@ import { SaleComponent } from './sale/sale.component';
 import { StockComponent } from './stock/stock.component';
 import { PurchaseListComponent } from './purchase-list/purchase-list.component';
 import { CheckserviceComponent } from './checkservice/checkservice.component';
+import { SaleListComponent } from './sale-list/sale-list.component';
 
 
 
@@ -26,6 +27,7 @@ const routes: Routes = [
   {path: "purchase" , component: PurchaseComponent},
   {path: "purchaseList" , component: PurchaseListComponent},
   {path: "sale" , component: SaleComponent},
+  {path: "saleList" , component: SaleListComponent},
   {path: "navbar" , component: NavbarComponent},
   {path: "stock" , component: StockComponent},
   {path: "checkService" , component: CheckserviceComponent},

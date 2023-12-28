@@ -3,6 +3,7 @@ package com.example.sysDevLtd.service;
 import com.example.sysDevLtd.entity.model.pos.Purchase;
 import com.example.sysDevLtd.entity.model.pos.Sale;
 import com.example.sysDevLtd.entity.model.pos.Stock;
+import com.example.sysDevLtd.entity.model.pos.Supplier;
 import com.example.sysDevLtd.entity.request.WarrantyDetailsDTO;
 import com.example.sysDevLtd.repository.SaleRepository;
 
@@ -46,6 +47,10 @@ public class SaleService {
 
     public List<Sale> getAllSale() {
         return saleRepository.findAll();
+    }
+
+    public Sale findSaleById(long saleId) {
+        return saleRepository.findById(saleId).get();
     }
 
 

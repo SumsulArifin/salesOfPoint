@@ -13,6 +13,7 @@ import { SaleComponent } from './sale/sale.component';
 import { StockComponent } from './stock/stock.component';
 import { PurchaseListComponent } from './purchase-list/purchase-list.component';
 import { CheckserviceComponent } from './checkservice/checkservice.component';
+import { SaleListComponent } from './sale-list/sale-list.component';
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import { CheckserviceComponent } from './checkservice/checkservice.component';
     StockComponent,
     PurchaseListComponent,
     CheckserviceComponent,
+    SaleListComponent,
  
     
 
