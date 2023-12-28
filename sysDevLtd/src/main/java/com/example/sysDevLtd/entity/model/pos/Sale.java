@@ -18,7 +18,7 @@ public class Sale extends BaseEntity{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long saleId;
 
-
+    @Column(name = "invoiceNumber", unique = true)
     private long invoiceNumber;
 
     @Column(name = "quantity")
@@ -46,6 +46,20 @@ public class Sale extends BaseEntity{
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "warrantyId")
     private Warranty warranty;
+
+
+    @PrePersist
+    public void generateInvoiceNumber() {
+
+        this.invoiceNumber = generateUniqueInvoiceNumber();
+    }
+
+    private long generateUniqueInvoiceNumber() {
+        long timestamp = System.currentTimeMillis();
+        long randomNumber = (long) (Math.random() * 1000);
+        return Long.parseLong(String.valueOf(timestamp) + String.valueOf(randomNumber));
+    }
+
 
 
 }
