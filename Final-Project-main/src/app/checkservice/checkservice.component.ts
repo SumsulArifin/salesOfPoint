@@ -9,7 +9,7 @@ import { CheckserviceService } from './checkservice.service';
 })
 export class CheckserviceComponent implements OnInit{
 
-  invoiceNo: number = 0;
+  invoiceNo!: number;
 
   showTable: boolean = false;
 
@@ -23,13 +23,15 @@ export class CheckserviceComponent implements OnInit{
 
 
   searchSalesByInvoiceNo(): void {
-    if (this.invoiceNo !== null) {
+    
       this.service.getStocksByProductName(this.invoiceNo)
         .subscribe(check => {
           this.check = check;
+          console.log(this.check);
+          this.showTable = this.check.length > 0;
         });
-    }
-    this.showTable = this.check.length > 0;
+    
+    
   }
 
 }
