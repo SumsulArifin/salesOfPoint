@@ -16,6 +16,7 @@ import { CheckserviceComponent } from './checkservice/checkservice.component';
 import { SaleListComponent } from './sale-list/sale-list.component';
 
 import { InvoiceComponent } from './invoice/invoice.component';
+import { SupplierComponent } from './supplier/supplier.component';
 
 
 
@@ -33,6 +34,7 @@ import { InvoiceComponent } from './invoice/invoice.component';
     CheckserviceComponent,
     SaleListComponent,
     InvoiceComponent,
+    SupplierComponent,
 
  
     

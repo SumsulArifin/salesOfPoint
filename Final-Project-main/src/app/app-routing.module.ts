@@ -11,6 +11,7 @@ import { PurchaseListComponent } from './purchase-list/purchase-list.component';
 import { CheckserviceComponent } from './checkservice/checkservice.component';
 import { SaleListComponent } from './sale-list/sale-list.component';
 import { InvoiceComponent } from './invoice/invoice.component';
+import { SupplierComponent } from './supplier/supplier.component';
 
 
 
@@ -34,6 +35,7 @@ const routes: Routes = [
   {path: "navbar" , component: NavbarComponent},
   {path: "stock" , component: StockComponent},
   {path: "checkService" , component: CheckserviceComponent},
+  {path: "supplier" , component: SupplierComponent},
   {path: 'generateInvoice/:postId/edit', component: InvoiceComponent},
   {path: " " , component: LoginComponent},
 

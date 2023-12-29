@@ -1,0 +1,4 @@
+.nav-item-active {
+    background-color: #000000; /* Set your desired color for the active state */
+    color: #ffffff; /* Set the text color for the active state */
+  }

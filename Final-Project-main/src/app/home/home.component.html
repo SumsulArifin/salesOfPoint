@@ -1,31 +1,23 @@
 
-
-
-
-
-
-
 <app-navbar></app-navbar>
  
-
-
-
 <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
+  <br>
+  <br>
+  <br>
     <div class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Dashboard</h1>
-          </div><!-- /.col -->
+            <h1 class="m-0">Welcome</h1>
+          </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Dashboard</li>
             </ol>
-          </div><!-- /.col -->
-        </div><!-- /.row -->
-      </div><!-- /.container-fluid -->
+          </div>
+        </div>
+      </div>
     </div>
 
     <div class="container mt-4">
@@ -39,7 +31,6 @@
     
     <div *ngIf="showTable" class="container mt-4">
       <table class="table">
-        <!-- Table headers remain the same -->
         <thead>
           <tr>
             <th>Product Name</th>
@@ -47,7 +38,6 @@
             <th>Supplaier Name</th>
             <th>Supplaier Number</th>
             <th>Quantity</th>
-            <!-- Add more table headers for other stock details if needed -->
           </tr>
         </thead>
         <tbody>
@@ -57,7 +47,6 @@
             <td>{{ stock.supplier.supplierName }}</td>
             <td>{{ stock.supplier.phoneNumber }}</td>
             <td>{{ stock.quantity }}</td>
-            <!-- Display other stock details within additional <td> elements -->
           </tr>
         </tbody>
       </table>
