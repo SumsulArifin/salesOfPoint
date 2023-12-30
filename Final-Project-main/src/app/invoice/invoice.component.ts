@@ -1,3 +1,4 @@
+
 import { Component, OnInit } from '@angular/core';
 import { Sale } from './InvoiceModel';
 import { InvoiceService } from './invoice.service';
@@ -66,6 +67,16 @@ export class InvoiceComponent implements OnInit{
       link.download = 'invoice.pdf';
       link.click();
     });
+  }
+
+  getYearOfWarranty(sale: Sale): string | null {
+    // Assuming yearOfManufacture is a property in the productDetails object
+    return sale?.warranty?.endDate || null;
+  }
+
+  getYearOfSaleDate(sale: Sale): string | null {
+    // Assuming yearOfManufacture is a property in the productDetails object
+    return sale?.saleDate || null;
   }
   
   

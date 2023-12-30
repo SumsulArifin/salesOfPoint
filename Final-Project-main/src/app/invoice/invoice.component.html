@@ -38,7 +38,7 @@
                     <!-- Invoice and Date on the right side -->
                     <b>Invoice: </b>{{ sale.invoiceNumber }}<br>
                     <br>
-                    <b>Date:</b> {{ sale.saleDate }}<br>
+                    <b>Date:</b> {{  getYearOfSaleDate(sale) | date:'yyyy-MM-dd' }}<br>
                   </div>
                   <!-- /.col -->
                 </div>
@@ -53,6 +53,7 @@
                       <tr>
                         <th>Customer Name</th>
                         <th>Product</th>
+                        <th>Model</th>
                         <th>Registration No</th>
                         <th>Warranty Date</th>
                         <th>Discount</th>
@@ -64,8 +65,9 @@
                           <tr>
                             <td>{{ sale.customer.firstName }} {{ sale.customer.lastName }}</td>
                             <td>{{ sale.stock.product.productName }}</td>
+                            <td>{{ sale.stock.product.model }}</td>
                             <td>{{ sale.stock.product.productDetails.registrationNo }}</td>
-                            <td>{{ sale.warranty.endDate }}</td>
+                            <td>{{ getYearOfWarranty(sale) | date:'yyyy-MM-dd' }}</td>
                             <td>{{ sale.discount }}</td>
                             <td>{{ sale.totalAmount }}</td>
                           </tr>
@@ -78,13 +80,13 @@
                 </div>
 
                 <div class="row">
-                  <div class="col-9">
+                  <div class="col-8">
                   </div>
                 
                 
   
                 
-                  <div class="col-3">
+                  <div class="col-4">
   
                     <div class="table-responsive">
                       <table class="table float-right">

@@ -9,7 +9,12 @@ import { HomeService } from './stock.service';
   styleUrls: ['./stock.component.css']
 })
 export class StockComponent {
+
+  searchProduct!:string;
+  
   stocks: Stock[] = [];
+
+  originalStocks: Stock[] = [];
 
   purchaseList: Purchase[]=[];
 
@@ -20,15 +25,33 @@ export class StockComponent {
   }
 
   fetchStock(): void {
-    this.stockService.getAllStock()
-      .subscribe((data: Stock[]) => {
-        this.stocks = data;
-      });
+    this.stockService.getAllStock().subscribe((data: Stock[]) => {
+      this.stocks = data;
+      this.originalStocks = [...this.stocks]; // Make a copy for initial display
+    });
 
       this.stockService.getAllPurchase()
       .subscribe((data: Purchase[]) => {
         this.purchaseList = data;
       });
+  }
+
+   searchByProduct(): void {
+    if (this.searchProduct) {
+      // Use the Array.filter method to filter the originalStocks
+      this.stocks = this.originalStocks.filter((stock) => {
+        // Assuming productName is a string
+        return stock.product.productName.toLowerCase().includes(this.searchProduct.toLowerCase());
+      });
+    } else {
+      // If the search product is empty, show the original list
+      this.stocks = [...this.originalStocks];
+    }
+  }
+
+  getYearOfManufacture(stock: Stock): string | null {
+    // Assuming yearOfManufacture is a property in the productDetails object
+    return stock?.product?.productDetails?.yearOfManufacture || null;
   }
 
 

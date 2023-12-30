@@ -28,6 +28,7 @@ export interface Sale {
         productId: number;
         productName: string;
         productType: string;
+        model: string;
         productDetails: {
           productDetailsId: number;
           registrationNo: string;

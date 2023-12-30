@@ -44,6 +44,7 @@
                                                     <th>Invoice Number</th>
                                                     <th>Customar </th>
                                                     <th>Product</th>
+                                                    <th>Model</th>
                                                     <th>Price</th>
                                                     <th>Sale Date </th>
                                                     <th>Warranty End Date </th>
@@ -56,9 +57,10 @@
                                                     <td>{{sal.invoiceNumber}}</td>
                                                     <td>{{sal.customer.firstName}}</td>
                                                     <td>{{sal.stock.product.productName}}</td>
+                                                    <td>{{sal.stock.product.model}}</td>
                                                     <td>{{sal.price}}</td>
-                                                    <td>{{sal.saleDate}}</td>
-                                                    <td>{{sal.warranty.endDate}}</td>
+                                                    <td>{{getYearOfSaleDate(sal) | date:'yyyy-MM-dd'}}</td>
+                                                    <td>{{getYearOfWarranty(sal) | date:'yyyy-MM-dd'}}</td>
                                                     <td><a href="" [routerLink]="['/generateInvoice/', sal.saleId, 'edit']"><span class="badge badge-success">Generate Invoice</span></a>
                                                     </td>
                                                 </tr>

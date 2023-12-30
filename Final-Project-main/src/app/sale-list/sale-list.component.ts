@@ -24,4 +24,14 @@ export class SaleListComponent {
       });
   }
 
+  getYearOfSaleDate(sale: Sale): string | null {
+    // Assuming yearOfManufacture is a property in the productDetails object
+    return sale?.saleDate || null;
+  }
+
+  getYearOfWarranty(sale: Sale): string | null {
+    // Assuming yearOfManufacture is a property in the productDetails object
+    return sale?.warranty?.endDate || null;
+  }
+
 }

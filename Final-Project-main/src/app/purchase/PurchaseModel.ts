@@ -14,6 +14,7 @@ export interface PurchaseFormData {
   product: {
     productName: string;
     productType: string;
+    model: string;
   };
   productDetails: {
     registrationNo: string;

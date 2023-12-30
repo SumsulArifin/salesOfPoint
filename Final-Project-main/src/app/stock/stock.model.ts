@@ -1,6 +1,7 @@
 export interface ProductDetails {
     productDetailsId: number;
     registrationNo: string;
+    yearOfManufacture: string;
   }
 
   
@@ -10,6 +11,7 @@ export interface ProductDetails {
     updatedAt: string | null;
     productName: string;
     productDetails: ProductDetails;
+    model: string;
   }
   
   export interface Supplier {

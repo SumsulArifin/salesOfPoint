@@ -46,6 +46,7 @@ export class PurchaseComponent implements OnInit{
       product: this.formBuilder.group({
         productName: ['', Validators.required],
         productType: ['', Validators.required],
+        model: ['', Validators.required],
       }),
       productDetails: this.formBuilder.group({
         registrationNo: ['', Validators.required],

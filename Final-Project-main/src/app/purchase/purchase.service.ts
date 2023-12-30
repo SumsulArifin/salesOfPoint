@@ -35,6 +35,7 @@ export class PurchaseService {
         product: {
           productName: data.product.productName,
           productType: data.product.productType,
+          model: data.product.model,
           productDetails: {
             registrationNo: data.productDetails.registrationNo,
             chassisNumber: data.productDetails.chassisNumber,

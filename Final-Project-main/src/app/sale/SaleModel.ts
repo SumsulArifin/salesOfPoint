@@ -4,7 +4,7 @@ import { Product } from "../stock/stock.model";
 export interface SaleModel {
   sale: {
     saleId: number;
-    quantity: number;
+    model: string;
     saleDate: Date;
     price: number;
     discount: number;

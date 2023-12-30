@@ -17,6 +17,7 @@ public class Product extends BaseEntity {
     private long productId;
     private String productName;
     private String productType;
+    private String model;
 
     @ManyToOne(cascade = CascadeType.ALL) // Define CascadeType based on your needs
     @JoinColumn(name = "productDetailsId") // Name of the foreign key column in Product table
