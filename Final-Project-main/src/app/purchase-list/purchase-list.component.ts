@@ -42,5 +42,10 @@ export class PurchaseListComponent {
       this.purchaseList = [...this.originalPurchaseList];
     }
   }
+
+  getYearOfPurchaseDate(purchase: Purchase): string | null {
+    // Assuming yearOfManufacture is a property in the productDetails object
+    return purchase?.purchaseDate || null;
+  }
 }
  

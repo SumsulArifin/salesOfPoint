@@ -57,7 +57,7 @@
                   <tbody>
           
                     <tr *ngFor="let pur of purchaseList">
-                      <td>{{pur.purchaseDate}}</td>
+                      <td>{{getYearOfPurchaseDate(pur) | date:'yyyy-MM-dd'}}</td>
                       <td>{{pur.stock.product.productName}}</td>
                       <td>{{pur.stock.product.model}}</td>
                       <td>{{pur.price}}</td>

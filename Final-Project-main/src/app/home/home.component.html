@@ -22,7 +22,7 @@
 
     <div class="container mt-4">
       <div class="input-group mb-3">
-        <input type="text" class="form-control" [(ngModel)]="productName" placeholder="Enter Product Name">
+        <input type="text" class="form-control" [(ngModel)]= "searchProduct" name="table_search" placeholder="Enter Product Name" (input)="searchByProduct()">
         <div class="input-group-append">
           <button class="btn btn-primary" (click)="searchStocksByProductName()">Search</button>
         </div>

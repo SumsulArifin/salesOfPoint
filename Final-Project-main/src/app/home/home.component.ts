@@ -14,9 +14,13 @@ export class HomeComponent {
 
   purchaseList: Purchase[]=[];
 
+  originalStocks: Stock[] = [];
+
   productName: string = '';
 
   showTable: boolean = false;
+
+  searchProduct!:string;
 
   constructor(private stockService: HomeService,
               private service: SearchService) { }
@@ -29,6 +33,7 @@ export class HomeComponent {
     this.stockService.getAllStock()
       .subscribe((data: Stock[]) => {
         this.stocks = data;
+        this.originalStocks = [...this.stocks];
       });
 
       this.stockService.getAllPurchase()
@@ -44,6 +49,19 @@ export class HomeComponent {
         });
     }
     this.showTable = this.stocks.length > 0;
+  }
+
+  searchByProduct(): void {
+    if (this.searchProduct) {
+      // Use the Array.filter method to filter the originalStocks
+      this.stocks = this.originalStocks.filter((stock) => {
+        // Assuming productName is a string
+        return stock.product.productName.toLowerCase().includes(this.searchProduct.toLowerCase());
+      });
+    } else {
+      // If the search product is empty, show the original list
+      this.stocks = [...this.originalStocks];
+    }
   }
 
 }
