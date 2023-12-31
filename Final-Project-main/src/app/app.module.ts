@@ -14,9 +14,11 @@ import { StockComponent } from './stock/stock.component';
 import { PurchaseListComponent } from './purchase-list/purchase-list.component';
 import { CheckserviceComponent } from './checkservice/checkservice.component';
 import { SaleListComponent } from './sale-list/sale-list.component';
-
 import { InvoiceComponent } from './invoice/invoice.component';
 import { SupplierComponent } from './supplier/supplier.component';
+import { GetwarrantyhomeComponent } from './getwarrantyhome/getwarrantyhome.component';
+
+
 
 
 
@@ -35,6 +37,9 @@ import { SupplierComponent } from './supplier/supplier.component';
     SaleListComponent,
     InvoiceComponent,
     SupplierComponent,
+    GetwarrantyhomeComponent,
+  
+    
 
  
     

@@ -60,16 +60,18 @@ public class SaleService {
         List<WarrantyDetailsDTO> warrantyDetailsList = new ArrayList<>();
 
         for (Object[] objects : result) {
-            Date endDate = (Date) objects[0];
-            String firstName = (String) objects[1];
-            String productName = (String) objects[2];
-            Date saleDate =(Date)  objects[3];
+            Long saleId = (Long) objects[0];
+            Date endDate = (Date) objects[1];
+            String firstName = (String) objects[2];
+            String productName = (String) objects[3];
+            Date saleDate =(Date)  objects[4];
+
 
             // Calculate days left
             long daysLeft = endDate.getTime() - new Date().getTime();
             daysLeft = Math.max(daysLeft, 0) / (1000 * 60 * 60 * 24); // Convert milliseconds to days
 
-            WarrantyDetailsDTO warrantyDetails = new WarrantyDetailsDTO(firstName, productName, saleDate, daysLeft);
+            WarrantyDetailsDTO warrantyDetails = new WarrantyDetailsDTO(saleId, firstName, productName, saleDate, endDate, daysLeft);
             warrantyDetailsList.add(warrantyDetails);
         }
 

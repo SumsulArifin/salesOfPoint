@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Sale } from './saleList.model';
 import { SaleService } from './SaleService.service';
 
@@ -7,7 +7,7 @@ import { SaleService } from './SaleService.service';
   templateUrl: './sale-list.component.html',
   styleUrls: ['./sale-list.component.css']
 })
-export class SaleListComponent {
+export class SaleListComponent implements OnInit{
 
   sales: Sale[] = [];
 

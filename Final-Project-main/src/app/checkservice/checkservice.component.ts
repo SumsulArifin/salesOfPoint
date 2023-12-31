@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CheckModel } from './CheckServiceModel';
 import { CheckserviceService } from './checkservice.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-checkservice',
@@ -15,9 +16,10 @@ export class CheckserviceComponent implements OnInit{
 
   check!: CheckModel[];
 
-  constructor(private service: CheckserviceService) { }
+  constructor(private service: CheckserviceService, private router: Router) { }
 
   ngOnInit(): void {
+
     
   }
 
@@ -32,6 +34,20 @@ export class CheckserviceComponent implements OnInit{
         });
     
     
+  }
+
+  getYearOfSaleDate(check: CheckModel): string | null {
+    // Assuming yearOfManufacture is a property in the productDetails object
+    return check?.saleDate || null;
+  }
+
+  getYearOfEndDate(check: CheckModel): string | null {
+    // Assuming yearOfManufacture is a property in the productDetails object
+    return check?.endDate || null;
+  }
+
+  routeToService() {
+    this.router.navigateByUrl("getWarranty");
   }
 
 }

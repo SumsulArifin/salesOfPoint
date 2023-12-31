@@ -19,8 +19,10 @@ export class InvoiceComponent implements OnInit{
 
   sale!: Sale;
 
-  constructor(private services: InvoiceService,
-    private router: Router, private route: ActivatedRoute,) { }
+  constructor(
+    private services: InvoiceService,
+    private router: Router, 
+    private route: ActivatedRoute) { }
 
   ngOnInit(): void {
 

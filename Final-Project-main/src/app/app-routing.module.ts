@@ -12,6 +12,7 @@ import { CheckserviceComponent } from './checkservice/checkservice.component';
 import { SaleListComponent } from './sale-list/sale-list.component';
 import { InvoiceComponent } from './invoice/invoice.component';
 import { SupplierComponent } from './supplier/supplier.component';
+import { GetwarrantyhomeComponent } from './getwarrantyhome/getwarrantyhome.component';
 
 
 
@@ -36,6 +37,7 @@ const routes: Routes = [
   {path: "stock" , component: StockComponent},
   {path: "checkService" , component: CheckserviceComponent},
   {path: "supplier" , component: SupplierComponent},
+  {path: "getWarrantyService/:postId/edit" , component: GetwarrantyhomeComponent},
   {path: 'generateInvoice/:postId/edit', component: InvoiceComponent},
   {path: " " , component: LoginComponent},
 

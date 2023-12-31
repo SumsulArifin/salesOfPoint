@@ -17,7 +17,7 @@ public interface SaleRepository extends JpaRepository<Sale,Long> {
 
 //    @Query("SELECT s.customer.firstName, s.stock.product.productName, s.warranty.endDate, FROM Sale s WHERE s.invoiceNumber = :invoiceNumber")
 //    Date findWarrantyEndDateByInvoiceNumber(@Param("invoiceNumber") long invoiceNumber);
-@Query("SELECT s.warranty.endDate, s.customer.firstName, s.stock.product.productName, s.saleDate " +
+@Query("SELECT s.saleId, s.warranty.endDate, s.customer.firstName, s.stock.product.productName, s.saleDate " +
         "FROM Sale s " +
         "WHERE s.invoiceNumber = :invoiceNumber")
 List<Object[]> findWarrantyEndDateByInvoiceNumber(@Param("invoiceNumber") long invoiceNumber);
