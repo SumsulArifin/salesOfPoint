@@ -69,7 +69,7 @@ public class SaleService {
 
             // Calculate days left
             long daysLeft = endDate.getTime() - new Date().getTime();
-            daysLeft = Math.max(daysLeft, 0) / (1000 * 60 * 60 * 24); // Convert milliseconds to days
+            daysLeft = Math.max(daysLeft, 0) / (1000 * 60 * 60 * 24); // Convert milliseconds t  o days
 
             WarrantyDetailsDTO warrantyDetails = new WarrantyDetailsDTO(saleId, firstName, productName, saleDate, endDate, daysLeft);
             warrantyDetailsList.add(warrantyDetails);

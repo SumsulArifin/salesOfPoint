@@ -1,5 +1,6 @@
 package com.example.sysDevLtd.entity.model.pos;
 
+import com.example.sysDevLtd.entity.model.users.SupplierType;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -16,6 +17,8 @@ public class Supplier {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long supplierId;
+    @Enumerated(EnumType.STRING)
+    private SupplierType supplierType;
 
     @Column(name = "supplier_name")
     private String supplierName;

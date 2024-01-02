@@ -43,6 +43,7 @@ class MyApp extends StatelessWidget {
     return ChangeNotifierProvider(
       create: (context) => AuthenticationProvider(),
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         title: 'Authentication Example',
         initialRoute: '/',
         routes: {

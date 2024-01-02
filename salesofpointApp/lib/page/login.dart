@@ -46,7 +46,7 @@ class Login extends StatelessWidget {
                   final request = AuthenticationRequest(email: email, password: password);
                   authProvider.authenticateUser(context, request);
                 } else {
-                  // Handle empty or null fields (show error message, etc.)
+                  print('error');
                 }
               },
               child: Text('Login'),
