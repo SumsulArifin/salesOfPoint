@@ -26,6 +26,10 @@ public class Stock {
     @JoinColumn(name = "product_id")
     private Product product;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "taxAndVat_Id")
+    private TaxAndVat taxAndVat;
+
     @ManyToOne
     @JoinColumn(name = "supplierId")
     private Supplier supplier;
