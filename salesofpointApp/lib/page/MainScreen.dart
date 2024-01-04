@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:salesofpointapp/page/addproduct.dart';
 import 'package:salesofpointapp/page/pageProvider.dart';
 
 
 import 'Dashboard.dart';
 import 'Purchase.dart';
 import 'Sale.dart';
-import 'SaleList.dart';
+import 'productList.dart';
 
 class MainScreen extends StatelessWidget {
   @override
@@ -18,12 +19,10 @@ class MainScreen extends StatelessWidget {
           switch (pageProvider.currentPage) {
             case PageType.Dashboard:
               return Dashboard();
-            case PageType.Purchase:
-              return Purchase();
-            case PageType.Sale:
-              return Sale();
-            case PageType.SaleList:
-              return SaleList();
+            case PageType.AddProduct:
+              return AddProduct();
+            case PageType.List:
+              return ProductList();
             default:
               return Container(); // Handle default or error case
           }
@@ -42,17 +41,15 @@ class MainScreen extends StatelessWidget {
               label: 'Dashboard',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.shopping_cart, color: Colors.black),
-              label: 'Purchase',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.attach_money, color: Colors.black),
-              label: 'Sale',
+              icon: Icon(Icons.add, color: Colors.black),
+              label: 'AddProduct',
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.list, color: Colors.black),
-              label: 'Sale List',
+              label: 'Product List',
             ),
+
+
           ],
         ),
       ),

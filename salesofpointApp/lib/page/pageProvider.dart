@@ -2,9 +2,8 @@ import 'package:flutter/material.dart';
 
 enum PageType {
   Dashboard,
-  Purchase,
-  Sale,
-  SaleList,
+  AddProduct,
+  List,
 }
 
 class PageProvider with ChangeNotifier {
